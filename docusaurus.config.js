@@ -147,6 +147,10 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  
+  customFields: {
+    apiInventoryBaseUrl: 'https://api.viagogo.net/v2'
+  }
 };
 
 module.exports = config;

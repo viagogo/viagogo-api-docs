@@ -20,14 +20,15 @@ const sidebars = {
       label: 'Overview',
       collapsed: false,
       collapsible: true,
-      link: {
-        type: 'doc',
-        id: 'overview/introduction'
-      },
       items: [
         'overview/introduction',
         'overview/libraries',
-        'overview/media-type'
+        'overview/media-type',
+        'overview/sandbox-environment',
+        'overview/pagination',
+        'overview/sorting',
+        'overview/localization',
+        'overview/sparse-fieldsets'
       ]
     }
   ],
