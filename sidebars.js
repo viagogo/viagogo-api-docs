@@ -30,6 +30,22 @@ const sidebars = {
         'overview/localization',
         'overview/sparse-fieldsets'
       ]
+    },
+    {
+      type: 'category',
+      label: 'Authentication',
+      link: {
+        type: 'generated-index',
+        title: 'Authentication',
+        description: 'The viagogo API uses OAuth2 for all authentication. OAuth2 is a protocol that lets external applications access public viagogo resources and private viagogo user details without getting their password.'
+      },
+      items: [
+        'authentication/basic-steps',
+        'authentication/application-only-authentication-flow',
+        'authentication/user-login-authentication-flow',
+        'authentication/token-expiration',
+        'authentication/scopes'
+      ]
     }
   ],
 

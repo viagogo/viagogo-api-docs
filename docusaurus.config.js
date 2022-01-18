@@ -145,12 +145,9 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['csharp', 'php', 'ruby']
       },
     }),
-  
-  customFields: {
-    apiInventoryBaseUrl: 'https://api.viagogo.net/v2'
-  }
 };
 
 module.exports = config;
