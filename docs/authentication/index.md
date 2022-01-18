@@ -1,0 +1,13 @@
+# Authentication
+
+The viagogo API uses OAuth2 for all authentication. OAuth2 is a protocol that
+lets external applications access public viagogo resources and private viagogo
+user details without getting their password.
+
+:::info
+
+**Tokens are passwords.**
+Keep in mind that your application's Client ID and Client Secret and all access
+tokens should be considered as sensitive as passwords and should not be shared.
+
+:::

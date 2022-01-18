@@ -12,7 +12,7 @@ We support [cross-origin resource sharing][cors] to allow you to interact
 securely with our API from a client-side web application. [OAuth2][oauth2]
 is used for all authentication. All API requests must be authenticated or you
 will receive a `401 Unauthorized` error response (see
-[Authentication](#authentication)).
+[Authentication](../authentication/index.md)).
 
 Client libraries are [available in several languages](./libraries.md).
 
