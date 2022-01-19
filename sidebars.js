@@ -25,6 +25,7 @@ const sidebars = {
         'overview/libraries',
         'overview/media-type',
         'overview/sandbox-environment',
+        'overview/basic-types',
         'overview/pagination',
         'overview/sorting',
         'overview/localization',

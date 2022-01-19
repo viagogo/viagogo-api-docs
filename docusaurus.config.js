@@ -33,10 +33,10 @@ const redocusaurus = [
        * @see https://github.com/redocly/redoc#redoc-options-object
        */
       redocOptions: {
-        hideDownloadButton: false,
         disableSearch: true,
         expandResponses: '200,201',
-        noAutoAuth: true
+        hideDownloadButton: true,
+        noAutoAuth: true,
       },
     },
   },

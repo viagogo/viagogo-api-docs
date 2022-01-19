@@ -3991,12 +3991,12 @@
   "tags": [
     {
       "name": "BasicType_Money",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Money\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "Returned for monetary values, such as ticket prices, fees charged and tax amounts.\n<SchemaDefinition schemaRef=\"#/components/schemas/Money\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Money"
     },
     {
       "name": "BasicType_Seating",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Seating\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "Represents the seating information for a ticket(s) in a Venue.\n<SchemaDefinition schemaRef=\"#/components/schemas/Seating\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Seating"
     },
     {
@@ -4007,47 +4007,47 @@
     },
     {
       "name": "Resource_ETickets",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ETickets\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/ETickets\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ETickets"
     },
     {
       "name": "Resource_ETicketUploads",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUploads\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUploads\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ETicketUploads"
     },
     {
       "name": "Resource_Payment",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Payment\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "A payment on the viagogo marketplace that belongs to the currently authenticated user.\n<SchemaDefinition schemaRef=\"#/components/schemas/Payment\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Payment"
     },
     {
       "name": "Resource_Payments",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Payments\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/Payments\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Payments"
     },
     {
       "name": "Resource_Sale",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Sale\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "A sale on the viagogo marketplace that belongs to the currently authenticated user.\n<SchemaDefinition schemaRef=\"#/components/schemas/Sale\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Sale"
     },
     {
       "name": "Resource_Sales",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Sales\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/Sales\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Sales"
     },
     {
       "name": "Resource_SalesAggregates",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/SalesAggregates\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/SalesAggregates\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "SalesAggregates"
     },
     {
       "name": "Resource_Shipment",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Shipment\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "A shipment of one or more tickets by a seller.\n<SchemaDefinition schemaRef=\"#/components/schemas/Shipment\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Shipment"
     },
     {
       "name": "Resource_Shipments",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Shipments\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "The Shipments resource is a collection resource that contains zero or\nmore references to a set of shipments, and links that guide you on ways\nto interact with the shipments. The collection offers a paginated view\nof shipments.\n<SchemaDefinition schemaRef=\"#/components/schemas/Shipments\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Shipments"
     },
     {

@@ -1023,7 +1023,6 @@
         "security": [
           {
             "OAuth2": [
-              "internal",
               "read:sellerlistings"
             ]
           }
@@ -5838,12 +5837,12 @@
   "tags": [
     {
       "name": "BasicType_Money",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Money\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "Returned for monetary values, such as ticket prices, fees charged and tax amounts.\n<SchemaDefinition schemaRef=\"#/components/schemas/Money\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Money"
     },
     {
       "name": "BasicType_Seating",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Seating\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "Represents the seating information for a ticket(s) in a Venue.\n<SchemaDefinition schemaRef=\"#/components/schemas/Seating\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Seating"
     },
     {
@@ -5854,52 +5853,52 @@
     },
     {
       "name": "Resource_ETickets",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ETickets\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "The ETickets resource is a collection resource that contains zero or\nmore references to a set of E-Tickets, and links that guide you on\nways to interact with the E-Tickets. The collection offers a paginated\nview of E-Tickets.\n<SchemaDefinition schemaRef=\"#/components/schemas/ETickets\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ETickets"
     },
     {
       "name": "Resource_ETicketUpload",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUpload\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "Represents an uploaded file that contains one or more E-Tickets.\n<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUpload\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ETicketUpload"
     },
     {
       "name": "Resource_ETicketUploads",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUploads\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/ETicketUploads\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ETicketUploads"
     },
     {
       "name": "Resource_ListingConstraints",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ListingConstraints\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "The constraints applied to a listing for a particular event on the viagogo marketplace.\n<SchemaDefinition schemaRef=\"#/components/schemas/ListingConstraints\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "ListingConstraints"
     },
     {
       "name": "Resource_SellerEvent",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/SellerEvent\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "An event on the viagogo marketplace with listings that belong to the currently authenticated user.\n<SchemaDefinition schemaRef=\"#/components/schemas/SellerEvent\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "SellerEvent"
     },
     {
       "name": "Resource_SellerEvents",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/SellerEvents\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/SellerEvents\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "SellerEvents"
     },
     {
       "name": "Resource_SellerListing",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/SellerListing\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "A set of tickets for sale on the viagogo marketplace that belong to the currently authenticated user.\n<SchemaDefinition schemaRef=\"#/components/schemas/SellerListing\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "SellerListing"
     },
     {
       "name": "Resource_SellerListings",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/SellerListings\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/SellerListings\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "SellerListings"
     },
     {
       "name": "Resource_Shipment",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Shipment\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "A shipment of one or more tickets by a seller.\n<SchemaDefinition schemaRef=\"#/components/schemas/Shipment\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Shipment"
     },
     {
       "name": "Resource_Shipments",
-      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Shipments\" showReadOnly={true} showWriteOnly={true} />",
+      "description": "The Shipments resource is a collection resource that contains zero or\nmore references to a set of shipments, and links that guide you on ways\nto interact with the shipments. The collection offers a paginated view\nof shipments.\n<SchemaDefinition schemaRef=\"#/components/schemas/Shipments\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Shipments"
     },
     {
