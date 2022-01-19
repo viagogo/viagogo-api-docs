@@ -13,9 +13,14 @@ const redocusaurus = [
     debug: Boolean(process.env.DEBUG || process.env.CI),
     specs: [
       {
-        id: 'using-spec-url',
-        specUrl: `${process.env.DEPLOY_BASE_URL || '/'}openapi.json`,
-        routePath: '/api-reference/',
+        id: 'inventory-api',
+        spec: './static/openapi/inventory.json',
+        routePath: '/api-reference/inventory',
+      },
+      {
+        id: 'sales-api',
+        spec: './static/openapi/sales.json',
+        routePath: '/api-reference/sales',
       },
     ],
     theme: {
@@ -27,7 +32,12 @@ const redocusaurus = [
        * Options to pass to redoc
        * @see https://github.com/redocly/redoc#redoc-options-object
        */
-      redocOptions: { hideDownloadButton: false, disableSearch: true },
+      redocOptions: {
+        hideDownloadButton: false,
+        disableSearch: true,
+        expandResponses: '200,201',
+        noAutoAuth: true
+      },
     },
   },
 ];
@@ -87,7 +97,16 @@ const config = {
           {
             label: ' API Reference',
             position: 'left',
-            to: '/api-reference/'
+            items: [
+              {
+                label: 'Inventory',
+                to: '/api-reference/inventory'
+              },
+              {
+                label: 'Sales',
+                to: '/api-reference/sales'
+              }
+            ]
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
