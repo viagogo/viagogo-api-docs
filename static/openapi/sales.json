@@ -997,81 +997,6 @@
         ]
       }
     },
-    "/salesaggregates": {
-      "get": {
-        "tags": [
-          "SalesAggregates"
-        ],
-        "summary": "List sales aggregates",
-        "description": "List aggregated sales data for the authenticated user.",
-        "operationId": "SalesAggregates_GetSalesAggregates",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Specifies which page of data to retrieve.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "page_size",
-            "in": "query",
-            "description": "Set custom page sizes on response.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "description": "Determines the ordering of items. A comma-separated string containing `sort_order`.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/hal+json": {
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SalesAggregates"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden",
-            "description": null
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication",
-            "description": null
-          },
-          "500": {
-            "$ref": "#/components/responses/internal_server_error",
-            "description": null
-          }
-        },
-        "security": [
-          {
-            "OAuth2": [
-              "read:user",
-              "read:sales"
-            ]
-          }
-        ]
-      }
-    },
     "/etickets/{eticketId}/thumbnail": {
       "get": {
         "tags": [
@@ -3636,220 +3561,6 @@
             ]
           }
         }
-      },
-      "SalesAggregates": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "total_items": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "page": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "page_size": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "_links": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SalesAggregatesLinks"
-              }
-            ]
-          },
-          "_embedded": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SalesAggregatesEmbeddedResources"
-              }
-            ]
-          }
-        }
-      },
-      "SalesAggregatesLinks": {
-        "title": "SalesAggregatesLinks",
-        "type": "object",
-        "properties": {
-          "self": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "first": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "last": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "next": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "prev": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          }
-        }
-      },
-      "SalesAggregatesEmbeddedResources": {
-        "title": "SalesAggregatesEmbeddedResources",
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SalesAggregate"
-            }
-          }
-        }
-      },
-      "SalesAggregate": {
-        "type": "object",
-        "description": "Aggregated sales data for the currently authenticated user.",
-        "additionalProperties": false,
-        "properties": {
-          "number_of_sales": {
-            "type": "integer",
-            "description": "The total number of sales aggregated in this resource.",
-            "format": "int32"
-          },
-          "proceeds": {
-            "description": "The total amount that the seller will receive for the sale.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Money"
-              }
-            ]
-          },
-          "number_of_tickets": {
-            "type": "integer",
-            "description": "The total number of tickets for the sales aggregated in this resource.",
-            "format": "int32"
-          },
-          "status": {
-            "type": "string",
-            "description": "A short localised string describing the current status of the aggregated sales.",
-            "nullable": true
-          },
-          "_links": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SalesAggregateLinks"
-              }
-            ]
-          }
-        }
-      },
-      "DistinctAggregates": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "categories": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/DistinctAggregate"
-            }
-          },
-          "venues": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/DistinctAggregate"
-            }
-          },
-          "_links": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DistinctAggregatesLinks"
-              }
-            ]
-          }
-        }
-      },
-      "DistinctAggregate": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "DistinctAggregatesLinks": {
-        "title": "DistinctAggregatesLinks",
-        "type": "object",
-        "properties": {
-          "self": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          }
-        }
-      },
-      "SalesAggregateLinks": {
-        "title": "SalesAggregateLinks",
-        "type": "object",
-        "properties": {
-          "self": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "salesaggregate:sales": {
-            "description": "The sales aggregated in this resource.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          }
-        }
       }
     },
     "responses": {
@@ -3951,6 +3662,20 @@
           "type": "string"
         },
         "example": "application/hal+json"
+      },
+      "VGG-Topic": {
+        "description": "Name of the topic that triggered this delivery",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Ping"
+      },
+      "VGG-DeliveryId": {
+        "description": "Unique identifier for this delivery",
+        "schema": {
+          "type": "string"
+        },
+        "example": "1993433"
       }
     },
     "securitySchemes": {
@@ -4036,11 +3761,6 @@
       "x-displayName": "Sales"
     },
     {
-      "name": "Resource_SalesAggregates",
-      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/SalesAggregates\" showReadOnly={true} showWriteOnly={true} />",
-      "x-displayName": "SalesAggregates"
-    },
-    {
       "name": "Resource_Shipment",
       "description": "A shipment of one or more tickets by a seller.\n<SchemaDefinition schemaRef=\"#/components/schemas/Shipment\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Shipment"
@@ -4055,9 +3775,6 @@
       "description": "View your sales details and fulfill your sales."
     },
     {
-      "name": "SalesAggregates"
-    },
-    {
       "name": "Shipments (Sales)"
     }
   ],
@@ -4066,10 +3783,9 @@
       "name": "Endpoints",
       "tags": [
         "Sales",
+        "E-Tickets (Sales)",
         "Payments",
-        "SalesAggregates",
-        "Shipments (Sales)",
-        "E-Tickets (Sales)"
+        "Shipments (Sales)"
       ]
     },
     {
@@ -4088,7 +3804,6 @@
         "Resource_Payments",
         "Resource_Sale",
         "Resource_Sales",
-        "Resource_SalesAggregates",
         "Resource_Shipment",
         "Resource_Shipments"
       ]

@@ -346,7 +346,7 @@
     "/events/{eventId}/sellerlistingpreview": {
       "post": {
         "tags": [
-          "SellerListings"
+          "SellerListings (Preview)"
         ],
         "summary": "Preview a seller listing",
         "description": "Creates a preview of a seller listing. The listing will not have an `id` and will not actually be created on the viagogo marketplace.",
@@ -417,7 +417,7 @@
     "/sellerlistings/{listingId}/updatepreview": {
       "post": {
         "tags": [
-          "SellerListings"
+          "SellerListings (Preview)"
         ],
         "summary": "Preview a seller listing update",
         "description": "Creates a preview of an update to a seller listing. The updates will not actually be applied to the listing on the viagogo marketplace.",
@@ -488,7 +488,7 @@
     "/sellerlistingpreview": {
       "post": {
         "tags": [
-          "SellerListings"
+          "SellerListings (Preview)"
         ],
         "summary": "Preview a seller listing for a requested event",
         "description": "Creates a preview of a seller listing for an event requested by the current user. The listing will not have an `id` and will not actually be created on the viagogo marketplace.",
@@ -619,7 +619,7 @@
     "/externalsellerlistings/{externallistingId}": {
       "get": {
         "tags": [
-          "SellerListings"
+          "SellerListings (External Id)"
         ],
         "summary": "Get a seller listing by external ID",
         "description": "Get a seller listing by identifier that has been assigned to the listing in an external inventory management system.",
@@ -675,7 +675,7 @@
     "/externalsellerlistings/{externalId}": {
       "patch": {
         "tags": [
-          "SellerListings"
+          "SellerListings (External Id)"
         ],
         "summary": "Update a seller listing by external ID",
         "description": "Update a seller listing by identifier that has been assigned to the listing in an external inventory management system.",
@@ -744,7 +744,7 @@
       },
       "delete": {
         "tags": [
-          "SellerListings"
+          "SellerListings (External Id)"
         ],
         "summary": "Delete a seller listing by external ID",
         "description": "Delete a seller listing by identifier that has been assigned to the listing in an external inventory management system.",
@@ -1032,7 +1032,7 @@
         "tags": [
           "SellerEvents"
         ],
-        "summary": "Create a requested event",
+        "summary": "Create a seller event",
         "description": "Request for an event to be created on the viagogo marketplace.",
         "operationId": "SellerEvents_PutSellerRequestedEvent",
         "requestBody": {
@@ -5797,6 +5797,20 @@
           "type": "string"
         },
         "example": "application/hal+json"
+      },
+      "VGG-Topic": {
+        "description": "Name of the topic that triggered this delivery",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Ping"
+      },
+      "VGG-DeliveryId": {
+        "description": "Unique identifier for this delivery",
+        "schema": {
+          "type": "string"
+        },
+        "example": "1993433"
       }
     },
     "securitySchemes": {
@@ -5909,6 +5923,14 @@
       "description": "List tickets, update your listings and search your inventory."
     },
     {
+      "name": "SellerListings (External Id)",
+      "description": "Manage your inventory using identifiers from an external inventory management system."
+    },
+    {
+      "name": "SellerListings (Preview)",
+      "description": "Preview the changes you want to make to your inventory."
+    },
+    {
       "name": "Shipments (Inventory)"
     }
   ],
@@ -5917,10 +5939,12 @@
       "name": "Endpoints",
       "tags": [
         "SellerListings",
+        "SellerListings (External Id)",
+        "SellerListings (Preview)",
+        "E-Tickets (Inventory)",
         "ListingConstraints",
         "SellerEvents",
-        "Shipments (Inventory)",
-        "E-Tickets (Inventory)"
+        "Shipments (Inventory)"
       ]
     },
     {

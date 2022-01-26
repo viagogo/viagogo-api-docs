@@ -13,6 +13,11 @@ const redocusaurus = [
     debug: Boolean(process.env.DEBUG || process.env.CI),
     specs: [
       {
+        id: 'account-api',
+        spec: './static/openapi/account.json',
+        routePath: '/api-reference/account',
+      },
+      {
         id: 'inventory-api',
         spec: './static/openapi/inventory.json',
         routePath: '/api-reference/inventory',
@@ -21,6 +26,11 @@ const redocusaurus = [
         id: 'sales-api',
         spec: './static/openapi/sales.json',
         routePath: '/api-reference/sales',
+      },
+      {
+        id: 'webhooks-api',
+        spec: './static/openapi/webhooks.json',
+        routePath: '/api-reference/webhooks',
       },
     ],
     theme: {
@@ -99,13 +109,21 @@ const config = {
             position: 'left',
             items: [
               {
+                label: 'Account',
+                to: '/api-reference/account'
+              },
+              {
                 label: 'Inventory',
                 to: '/api-reference/inventory'
               },
               {
                 label: 'Sales',
                 to: '/api-reference/sales'
-              }
+              },
+              {
+                label: 'Webhooks',
+                to: '/api-reference/webhooks'
+              },
             ]
           },
           {to: '/blog', label: 'Blog', position: 'left'},
