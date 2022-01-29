@@ -11,3 +11,8 @@ Keep in mind that your application's Client ID and Client Secret and all access
 tokens should be considered as sensitive as passwords and should not be shared.
 
 :::
+
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>

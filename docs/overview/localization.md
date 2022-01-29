@@ -1,6 +1,6 @@
 # Localization
 
-viagogo API v2 supports various request headers to return locale-specific
+The viagogo API supports various request headers to return locale-specific
 content in responses.
 
 ## Accept-Language Header

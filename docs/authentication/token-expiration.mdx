@@ -3,15 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[oauth2]: http://oauth.net/2/
-[refreshtoken]: http://tools.ietf.org/html/rfc6749#section-6
-
 You should write your applications to anticipate the possibility that a granted
 token may no longer work. Access tokens are short-lived but they are issued with
 a single-use, long-lived refresh token that can be used to get new tokens.
 Applications can use the [refresh token grant][refreshtoken]  of the
 [OAuth2 specification][oauth2] to obtain additional access tokens in order to
 prolong the application's access to a user's data.
+
+[oauth2]: http://oauth.net/2/
+[refreshtoken]: http://tools.ietf.org/html/rfc6749#section-6
 
 :::info
 

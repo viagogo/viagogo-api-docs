@@ -54,7 +54,7 @@ const redocusaurus = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'viagogo API v2',
+  title: 'viagogo API',
   tagline: 'Connect people to live events',
   url: 'https://developer.viagogo.net',
   baseUrl: '/',
@@ -92,7 +92,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'viagogo API v2',
+        title: 'viagogo API',
         logo: {
           alt: 'viagogo Logo',
           src: 'img/logo.svg',
@@ -126,7 +126,7 @@ const config = {
               },
             ]
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Announcements', position: 'left'},
           {
             href: 'https://github.com/viagogo/viagogo-api-docs',
             label: 'GitHub',

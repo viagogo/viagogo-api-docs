@@ -1,6 +1,6 @@
 # Introduction
 
-The official viagogo API v2 connects your website or application with the
+The official viagogo API connects your website or application with the
 world’s largest ticket marketplace. Your application can use the API to search
 for and view events, purchase tickets for an event or list tickets on the
 viagogo platform.
