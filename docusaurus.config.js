@@ -95,7 +95,7 @@ const config = {
         title: 'viagogo API',
         logo: {
           alt: 'viagogo Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
