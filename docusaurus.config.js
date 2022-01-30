@@ -91,6 +91,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+      },
       navbar: {
         title: 'viagogo API',
         logo: {
@@ -103,6 +106,12 @@ const config = {
             docId: 'overview/introduction',
             position: 'left',
             label: 'Guides',
+          },
+          {to: '/blog', label: 'Announcements', position: 'left'},
+          {
+            href: 'https://github.com/viagogo/viagogo-api-docs',
+            label: 'GitHub',
+            position: 'right',
           },
           {
             label: ' API Reference',
@@ -125,12 +134,6 @@ const config = {
                 to: '/api-reference/webhooks'
               },
             ]
-          },
-          {to: '/blog', label: 'Announcements', position: 'left'},
-          {
-            href: 'https://github.com/viagogo/viagogo-api-docs',
-            label: 'GitHub',
-            position: 'right',
           },
         ],
       },
