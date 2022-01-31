@@ -1,5 +1,7 @@
 # viagogo API Documentation
 
+[![CI](https://github.com/viagogo/viagogo-api-docs/actions/workflows/ci.yml/badge.svg)](https://github.com/viagogo/viagogo-api-docs/actions/workflows/ci.yml)
+
 This is the documentation website for the viagogo API! (http://developer.viagogo.net)
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.

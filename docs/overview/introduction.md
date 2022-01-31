@@ -12,7 +12,7 @@ We support [cross-origin resource sharing][cors] to allow you to interact
 securely with our API from a client-side web application. [OAuth2][oauth2]
 is used for all authentication. All API requests must be authenticated or you
 will receive a `401 Unauthorized` error response (see
-[Authentication](../authentication/index.md)).
+[Authentication](../authentication/index.mdx)).
 
 [cors]: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 [oauth2]: http://oauth.net/2/
@@ -26,7 +26,7 @@ programming language of choice.
 
 ### 2. Authenticate your Application to Access the API
 
-See [Authentication](../authentication/index.md) to get an access token to access the viagogo API.
+See [Authentication](../authentication/index.mdx) to get an access token to access the viagogo API.
 All API requests must be authenticated or you will receive a `401 Unauthorized` error response.
 
 ### 3. Follow the Guides
