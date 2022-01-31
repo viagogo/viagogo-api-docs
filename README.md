@@ -1,41 +1,49 @@
-# Website
+# viagogo API Documentation
+
+This is the documentation website for the viagogo API! (http://developer.viagogo.net)
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+## How to contribute
 
-```
-$ yarn
-```
+All submissions are welcome. Fork the repository, read the rest of this README file and make some changes.
+Once you're done with your changes send a pull request. Thanks!
 
-### Local Development
+## How to run the site locally
 
-```
-$ yarn start
-```
+### Prerequisites
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+You're going to need:
 
-### Build
+- [Node JS](https://nodejs.org/)
 
-```
-$ yarn build
-```
+### Getting Set Up
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+ 1. Fork this repository on Github.
+ 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/viagogo-api-docs.git`
+ 3. `cd viagogo-api-docs`
+ 4. Install all dependencies: `npm install`
+ 5. Start the preview server: `npm run start`
 
-### Deployment
+## How to edit the documentation
 
-Using SSH:
+### Project Structure
 
-```
-$ USE_SSH=true yarn deploy
-```
+This website is built using [Docusaurus 2](https://docusaurus.io/) and it uses the [default project
+structure for Docusaurus websites](https://docusaurus.io/docs/installation#project-structure).
 
-Not using SSH:
+### Editing Existing Docs and Announcements
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Open the `.md` or `.mdx` file for the content you want to edit and make your changes. See
+[Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features) for more information.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+### Adding New Docs
+
+1. Add a `.md` or `.mdx` file under the `./docs/` folder
+2. Update `./sidebars.js` to add your new doc to the side-bar. See 
+[Docusaurus Sidebar](https://docusaurus.io/docs/sidebar) for more details
+
+### Adding New Announcements
+
+1. Add a new `.md` or `.mdx` file named `YYYY-MM-DD-your-announcement-name.mdx` under the `./blog/`
+folder. See [Docusaurus Blogs](https://docusaurus.io/docs/blog) for more details
