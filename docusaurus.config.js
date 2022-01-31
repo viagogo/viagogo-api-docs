@@ -144,25 +144,33 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Overview',
+                to: '/docs/overview/introduction',
+              },
+              {
+                label: 'Client Libraries',
+                to: '/docs/overview/libraries',
+              },
+              {
+                label: 'Authentication',
+                to: 'docs/authentication/',
+              },
+              {
+                label: 'Guides',
+                to: 'docs/guides/',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Company',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'About Us',
+                href: 'https://www.stubhub.com/about-us',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Careers',
+                href: 'https://www.stubhub.com/jobs',
               },
             ],
           },
@@ -170,12 +178,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/viagogo/viagogo-api-docs',
               },
             ],
           },
