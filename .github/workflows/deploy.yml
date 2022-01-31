@@ -1,13 +1,13 @@
-name: CI
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build:
-    name: CI Build
+  deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +23,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

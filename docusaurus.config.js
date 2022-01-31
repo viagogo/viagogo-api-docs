@@ -4,6 +4,9 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const githubRepoUrl = 'https://github.com/viagogo/viagogo-api-docs';
+const githubRepoEditUrl = githubRepoUrl + '/tree/main';
+
 /**
  * @type {import('redocusaurus').PresetEntry}
  */
@@ -72,14 +75,11 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: githubRepoEditUrl,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: githubRepoEditUrl,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -109,7 +109,7 @@ const config = {
           },
           {to: '/blog', label: 'Announcements', position: 'left'},
           {
-            href: 'https://github.com/viagogo/viagogo-api-docs',
+            href: githubRepoUrl,
             label: 'GitHub',
             position: 'right',
           },
@@ -179,7 +179,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/viagogo/viagogo-api-docs',
+                href: githubRepoUrl,
               },
             ],
           },
