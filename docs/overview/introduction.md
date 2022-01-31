@@ -14,7 +14,27 @@ is used for all authentication. All API requests must be authenticated or you
 will receive a `401 Unauthorized` error response (see
 [Authentication](../authentication/index.md)).
 
-Client libraries are [available in several languages](./libraries.md).
-
 [cors]: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 [oauth2]: http://oauth.net/2/
+
+## How to use these docs
+
+### 1. Choose a Client Library
+
+[Client libraries](./libraries.md) are available in several languages. Choose the library in your
+programming language of choice.
+
+### 2. Authenticate your Application to Access the API
+
+See [Authentication](../authentication/index.md) to get an access token to access the viagogo API.
+All API requests must be authenticated or you will receive a `401 Unauthorized` error response.
+
+### 3. Follow the Guides
+
+Follow our end-to-end [Guides](../guides/index.mdx) on integrating with the viagogo API for common
+use cases.
+
+### 4. Use the API Reference for more details
+
+The [API Reference](/api-reference/inventory) gives a complete reference to our HTTP APIs that you
+can use to interact with the viagogo platform.

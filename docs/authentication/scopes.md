@@ -1,3 +1,7 @@
+---
+description: Specify what type of access is needed by your application.
+---
+
 # Scopes
 
 Scopes allow your applications to specify exactly what type of access is needed.

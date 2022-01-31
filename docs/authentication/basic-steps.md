@@ -1,3 +1,7 @@
+---
+description: High-level steps for authenticating your application.
+---
+
 # Basic Steps
 
 All applications follow a basic pattern when accessing the viagogo API. At a

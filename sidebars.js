@@ -47,19 +47,19 @@ const sidebars = {
         'authentication/token-expiration',
         'authentication/scopes',
       ]
-    }
-  ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
+    },
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['hello'],
+      label: 'Guides',
+      link: {
+        type: 'doc',
+        id: 'guides/index'
+      },
+      items: [
+        'guides/creating-a-listing',
+      ]
     },
   ],
-   */
 };
 
 module.exports = sidebars;
