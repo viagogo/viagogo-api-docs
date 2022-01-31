@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>viagogo API Blog</title>
+        <link>https://developer.viagogo.net/blog</link>
+        <description>viagogo API Blog</description>
+        <lastBuildDate>Sat, 30 Jun 2018 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[TLS v1.0 Deprecation Notice]]></title>
+            <link>https://developer.viagogo.net/blog/2018/06/30/tls-deprecation-notice</link>
+            <guid>/2018/06/30/tls-deprecation-notice</guid>
+            <pubDate>Sat, 30 Jun 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[viagogo will be disabling support for TLS v1.0 on our public facing api. We are providing advanced notice so that our customers and partners can prepare accordingly. If you are using unsupported clients to connect to the viagogo API after disabling TLS v1.0, you will begin receiving connection error messages.]]></description>
+            <content:encoded><![CDATA[<p>viagogo will be disabling support for TLS v1.0 on our public facing api. We are providing advanced notice so that our customers and partners can prepare accordingly. If you are using unsupported clients to connect to the viagogo API after disabling TLS v1.0, you will begin receiving connection error messages.</p><p>:::warning</p><p><strong>Possible breaking change</strong>
+This change is a possible breaking change to clients that connect to our API using Tls1.0.</p><p>:::</p><h2>Why are we disabling TLS v1.0?</h2><p>We are disabling TLS v1.0 to ensure that viagogo software is providing our customers and partners with safe and secure protocols for our connections. This change is enforced throughout the industry to maintain secure connections that encrypt and protect your sensitive data from malicious breaches. The PCI Security Standards Council updated their guidance and will now require full deprecation of TLS 1.0  for applications that process payments. Although, we only support payments on the viagogo website application, we will be following the recommendation across all our inbound connections.</p><h2>Am I affected?</h2><p>Customers that have custom clients and are using clients that do not support TLS v1.1 and above will no longer be able to successfully connect to our public API.</p><p>Customer should ensure that they are using a supported client or else it will lead to downtime of any internal processes that utilize the viagogo API.</p><p>viagogo will be performing analysis of connections to our public API and performing proactive communications to affected customer to ensure a smooth transition.  We still recommend that our customers do not rely solely on us to reach out to them, each customer that utilizes these APIs should ensure that they are prepared for the deprecation date.</p><p>You can use the following API to easily test the library you are using for API connections to viagogo to ensure it supports TLS v1.1 or greater.</p><p><a href="https://www.howsmyssl.com/a/check">https://www.howsmyssl.com/a/check</a></p><p>The HTTP response will contain a <code>tls_version</code> value which contains the highest version of TLS that is supported by the client.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
