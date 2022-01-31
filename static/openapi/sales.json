@@ -22,7 +22,7 @@
     "/sales/{saleId}/shipments/{shipmentId}/label": {
       "get": {
         "tags": [
-          "Shipments (Sales)"
+          "Shipments"
         ],
         "summary": "Get shipping label for a sale",
         "operationId": "Shipments_GetSaleShippingLabel",
@@ -88,7 +88,7 @@
     "/sales/{saleId}/shipments": {
       "get": {
         "tags": [
-          "Shipments (Sales)"
+          "Shipments"
         ],
         "summary": "List shipments for a sale",
         "operationId": "Shipments_GetSaleShipments",
@@ -160,7 +160,7 @@
       },
       "put": {
         "tags": [
-          "Shipments (Sales)"
+          "Shipments"
         ],
         "summary": "Print a shipping label for a sale",
         "operationId": "Shipments_PutOrGetSaleShipmentLabel",
@@ -216,7 +216,7 @@
     "/sales/{saleId}/shipments/{shipmentId}": {
       "patch": {
         "tags": [
-          "Shipments (Sales)"
+          "Shipments"
         ],
         "summary": "Update a shipment for a sale",
         "operationId": "Shipments_PatchSaleShipment",
@@ -296,9 +296,10 @@
     "/sales/{saleId}/eticketuploads": {
       "post": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
-        "summary": "Upload e-tickets for a sale",
+        "summary": "Upload e-tickets or proof of transfer for a sale",
+        "description": "Once the PDFs has been successfully been uploaded, you must also patch the sale confirming which pages of each PDF should be saved against the order. To do this, the Ids of the etickets property embedded in the EticketUploadEmbeddedResources of each upload, and patch the sale with those Ids.",
         "operationId": "ETicket_UploadSaleETicket",
         "parameters": [
           {
@@ -368,7 +369,7 @@
       },
       "get": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "List e-ticket uploads for a sale",
         "operationId": "ETicket_GetSaleETicketUploads",
@@ -442,7 +443,7 @@
     "/sales/{saleId}/etickets": {
       "get": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "List e-tickets for a sale",
         "operationId": "ETicket_GetSaleETickets",
@@ -516,7 +517,7 @@
     "/sales/{saleId}/etickets/{eticketId}": {
       "delete": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "Delete e-ticket from a sale",
         "operationId": "ETicket_DeleteSaleETicket",
@@ -1000,7 +1001,7 @@
     "/etickets/{eticketId}/thumbnail": {
       "get": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "Get e-ticket thumbnail file",
         "description": "Download an image file containing a thumbnail of an E-Ticket",
@@ -1057,7 +1058,7 @@
     "/eticketuploads/{eticketUploadId}/document": {
       "get": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "Get e-ticket upload file",
         "description": "Download the original file that was uploaded.",
@@ -1114,7 +1115,7 @@
     "/etickets/{eticketId}/document": {
       "get": {
         "tags": [
-          "E-Tickets (Sales)"
+          "E-Tickets"
         ],
         "summary": "Get e-ticket file",
         "description": "Download a PDF file containing an E-Ticket.",
@@ -1163,6 +1164,62 @@
           {
             "OAuth2": [
               "read:user"
+            ]
+          }
+        ]
+      }
+    },
+    "/sales/{saleId}/ticketholders": {
+      "get": {
+        "tags": [
+          "TicketHolders"
+        ],
+        "summary": "List ticket holder details for a sale",
+        "operationId": "TicketHolders_GetSaleTicketHolderDetails",
+        "parameters": [
+          {
+            "name": "saleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketHolder"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found",
+            "description": null
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read:user",
+              "read:sales"
             ]
           }
         ]
@@ -2956,7 +3013,7 @@
           },
           "eticket_ids": {
             "type": "array",
-            "description": "A array of the identifiers of the E-Tickets to be assigned to the sale.",
+            "description": "A array of the identifiers of the E-Tickets or proof of transfer to be assigned to the sale.",
             "nullable": true,
             "items": {
               "type": "integer",
@@ -2967,6 +3024,14 @@
             "type": "string",
             "description": "Transfer confirmation number.",
             "nullable": true
+          },
+          "eticket_urls": {
+            "type": "array",
+            "description": "Urls with which the buyers can access the etickets.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ETicketUrlRequest"
+            }
           },
           "change_paper_ticket_to_eticket": {
             "type": "boolean",
@@ -2982,6 +3047,11 @@
             "type": "string",
             "description": "The date and time that the seller has the tickets 'in hand' to deliver to the buyer.",
             "format": "date-time",
+            "nullable": true
+          },
+          "eticket_type": {
+            "type": "string",
+            "description": "The type of ticket(s) that was sold.",
             "nullable": true
           },
           "tracking_number": {
@@ -3561,6 +3631,130 @@
             ]
           }
         }
+      },
+      "TicketHolder": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "full_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "city_of_birth": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_of_birth": {
+            "type": "string",
+            "nullable": true
+          },
+          "city_of_residence": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_of_residence": {
+            "type": "string",
+            "nullable": true
+          },
+          "club_issuer": {
+            "type": "string",
+            "nullable": true
+          },
+          "card_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "fiscal_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "security_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "generic_answer": {
+            "type": "string",
+            "nullable": true
+          },
+          "email_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "_links": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TicketHolderLinks"
+              }
+            ]
+          },
+          "_embedded": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TicketHolderEmbeddedResources"
+              }
+            ]
+          }
+        }
+      },
+      "TicketHolderLinks": {
+        "title": "TicketHolderLinks",
+        "type": "object",
+        "properties": {
+          "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
+              }
+            ]
+          }
+        }
+      },
+      "TicketHolderEmbeddedResources": {
+        "title": "TicketHolderEmbeddedResources",
+        "type": "object",
+        "properties": {
+          "document_issuing_country": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Country"
+              }
+            ]
+          },
+          "nationality_country": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Country"
+              }
+            ]
+          }
+        }
       }
     },
     "responses": {
@@ -3707,6 +3901,7 @@
         "read:sales",
         "read:sellerlistings",
         "read:user",
+        "write:purchases",
         "write:sales",
         "write:sellerlistings",
         "write:user"
@@ -3725,7 +3920,7 @@
       "x-displayName": "Seating"
     },
     {
-      "name": "E-Tickets (Sales)"
+      "name": "E-Tickets"
     },
     {
       "name": "Payments"
@@ -3771,11 +3966,19 @@
       "x-displayName": "Shipments"
     },
     {
+      "name": "Resource_TicketHolder",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/TicketHolder\" showReadOnly={true} showWriteOnly={true} />",
+      "x-displayName": "TicketHolder"
+    },
+    {
       "name": "Sales",
       "description": "View your sales details and fulfill your sales."
     },
     {
-      "name": "Shipments (Sales)"
+      "name": "Shipments"
+    },
+    {
+      "name": "TicketHolders"
     }
   ],
   "x-tagGroups": [
@@ -3783,9 +3986,10 @@
       "name": "Endpoints",
       "tags": [
         "Sales",
-        "E-Tickets (Sales)",
+        "E-Tickets",
         "Payments",
-        "Shipments (Sales)"
+        "Shipments",
+        "TicketHolders"
       ]
     },
     {
@@ -3805,7 +4009,8 @@
         "Resource_Sale",
         "Resource_Sales",
         "Resource_Shipment",
-        "Resource_Shipments"
+        "Resource_Shipments",
+        "Resource_TicketHolder"
       ]
     }
   ]

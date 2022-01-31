@@ -1146,7 +1146,7 @@
     "/sellerlistings/{listingId}/shipments/{shipmentId}/label": {
       "get": {
         "tags": [
-          "Shipments (Inventory)"
+          "Shipments"
         ],
         "summary": "Get a shipping label for a seller listing",
         "operationId": "Shipments_GetListingShippingLabel",
@@ -1212,7 +1212,7 @@
     "/sellerlistings/{listingId}/shipments": {
       "get": {
         "tags": [
-          "Shipments (Inventory)"
+          "Shipments"
         ],
         "summary": "List shipments for a seller listing",
         "operationId": "Shipments_GetListingShipments",
@@ -1284,7 +1284,7 @@
       },
       "put": {
         "tags": [
-          "Shipments (Inventory)"
+          "Shipments"
         ],
         "summary": "Print a shipping label for a seller listing",
         "operationId": "Shipments_PutOrGetListingShipmentLabel",
@@ -1340,7 +1340,7 @@
     "/sellerlistings/{listingId}/shipments/{shipmentId}": {
       "patch": {
         "tags": [
-          "Shipments (Inventory)"
+          "Shipments"
         ],
         "summary": "Update a shipment for a seller listing",
         "operationId": "Shipments_PatchListingShipment",
@@ -1420,7 +1420,7 @@
     "/sellerlistings/{listingId}/eticketuploads": {
       "post": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Upload e-tickets for a seller listing",
         "operationId": "ETicket_UploadListingETicket",
@@ -1491,7 +1491,7 @@
       },
       "get": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "List e-ticket uploads for a seller listing",
         "operationId": "ETicket_GetListingETicketUploads",
@@ -1564,7 +1564,7 @@
     "/events/{eventId}/eticketuploads": {
       "post": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Upload e-tickets for an event",
         "operationId": "ETicket_UploadEventETicket",
@@ -1635,7 +1635,7 @@
       },
       "get": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "List e-ticket uploads for an event",
         "operationId": "ETicket_GetEventETicketUploads",
@@ -1690,7 +1690,7 @@
     "/sellerlistings/{listingId}/etickets": {
       "get": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "List e-tickets for a seller listing",
         "operationId": "ETicket_GetListingETickets",
@@ -1761,7 +1761,7 @@
       },
       "patch": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Mark-back e-tickets from a seller listing",
         "description": "Removes a certain number of e-tickets that you no longer wish to sell from your listing.",
@@ -1850,7 +1850,7 @@
     "/sellerlistings/{listingId}/etickets/{ETicketId}": {
       "delete": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Delete e-ticket from a seller listing",
         "operationId": "ETicket_DeleteListingETicket",
@@ -1903,7 +1903,7 @@
     "/events/{eventId}/etickets/{eticketId}": {
       "delete": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Delete e-ticket from an event",
         "operationId": "ETicket_DeleteEventETicket",
@@ -1956,7 +1956,7 @@
     "/sellerlistings/{listingId}/markedbacketickets/{markedBackETicketId}/document": {
       "get": {
         "tags": [
-          "E-Tickets (Inventory)"
+          "E-Tickets"
         ],
         "summary": "Get marked back e-ticket file for seller listing",
         "operationId": "ETicketDocument_GetMarkedBackETicketDocument",
@@ -3769,7 +3769,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/EmbeddedVenue"
+                "$ref": "#/components/schemas/VenueRequest"
               }
             ]
           },
@@ -3778,7 +3778,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Country"
+                "$ref": "#/components/schemas/CountryRequest"
               }
             ]
           },
@@ -3938,6 +3938,10 @@
       "EventRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "name",
+          "start_date"
+        ],
         "properties": {
           "name": {
             "type": "string",
@@ -3947,6 +3951,7 @@
           "start_date": {
             "type": "string",
             "description": "The date when the event starts.",
+            "format": "date-time",
             "nullable": true
           },
           "date_confirmed": {
@@ -3957,6 +3962,46 @@
           "note": {
             "type": "string",
             "description": "Additional notes on the event.",
+            "nullable": true
+          }
+        }
+      },
+      "VenueRequest": {
+        "type": "object",
+        "description": "A venue is a location where an event takes place.",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "city"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the venue.",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "The name of the city where the venue is located.",
+            "nullable": true
+          },
+          "state_province": {
+            "type": "string",
+            "description": "The name of the State or Province where the venue is located.",
+            "nullable": true
+          }
+        }
+      },
+      "CountryRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The two-letter ISO 3166 code for the country.",
             "nullable": true
           }
         }
@@ -4136,7 +4181,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/EmbeddedVenue"
+                "$ref": "#/components/schemas/VenueRequest"
               }
             ]
           },
@@ -4145,7 +4190,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Country"
+                "$ref": "#/components/schemas/CountryRequest"
               }
             ]
           }
@@ -4334,7 +4379,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/EmbeddedVenue"
+                "$ref": "#/components/schemas/VenueRequest"
               }
             ]
           },
@@ -4343,7 +4388,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Country"
+                "$ref": "#/components/schemas/CountryRequest"
               }
             ]
           }
@@ -5860,7 +5905,7 @@
       "x-displayName": "Seating"
     },
     {
-      "name": "E-Tickets (Inventory)"
+      "name": "E-Tickets"
     },
     {
       "name": "ListingConstraints"
@@ -5931,7 +5976,7 @@
       "description": "Preview the changes you want to make to your inventory."
     },
     {
-      "name": "Shipments (Inventory)"
+      "name": "Shipments"
     }
   ],
   "x-tagGroups": [
@@ -5941,10 +5986,10 @@
         "SellerListings",
         "SellerListings (External Id)",
         "SellerListings (Preview)",
-        "E-Tickets (Inventory)",
+        "E-Tickets",
         "ListingConstraints",
         "SellerEvents",
-        "Shipments (Inventory)"
+        "Shipments"
       ]
     },
     {
