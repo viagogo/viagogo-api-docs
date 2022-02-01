@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapi_docs=self.webpackChunkapi_docs||[]).push([[3817],{2954:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/breaking-change","name":"breaking-change","count":1,"permalink":"/blog/tags/breaking-change"}')}}]);

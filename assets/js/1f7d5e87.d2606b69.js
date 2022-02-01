@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkapi_docs=self.webpackChunkapi_docs||[]).push([[5498],{2765:function(a){a.exports=JSON.parse('{"allTagsPath":"/viagogo-api-docs/blog/tags","slug":"/viagogo-api-docs/blog/tags/breaking-change","name":"breaking-change","count":1,"permalink":"/viagogo-api-docs/blog/tags/breaking-change"}')}}]);

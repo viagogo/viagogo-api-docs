@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>viagogo API Blog</title>
-        <link>https://developer.viagogo.net/blog</link>
+        <link>https://viagogo.github.io/viagogo-api-docs/blog</link>
         <description>viagogo API Blog</description>
         <lastBuildDate>Sat, 30 Jun 2018 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[TLS v1.0 Deprecation Notice]]></title>
-            <link>https://developer.viagogo.net/blog/2018/06/30/tls-deprecation-notice</link>
+            <link>https://viagogo.github.io/viagogo-api-docs/blog/2018/06/30/tls-deprecation-notice</link>
             <guid>/2018/06/30/tls-deprecation-notice</guid>
             <pubDate>Sat, 30 Jun 2018 00:00:00 GMT</pubDate>
             <description><![CDATA[viagogo will be disabling support for TLS v1.0 on our public facing api. We are providing advanced notice so that our customers and partners can prepare accordingly. If you are using unsupported clients to connect to the viagogo API after disabling TLS v1.0, you will begin receiving connection error messages.]]></description>
