@@ -58,14 +58,15 @@ const redocusaurus = [
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'viagogo API',
-  tagline: 'Connect people to live events',
-  url: 'https://developer.viagogo.net',
-  baseUrl: '/',
+  tagline: "viagogo's Developer Portal",
+  url: 'https://viagogo.github.io/',
+  baseUrl: '/viagogo-api-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'viagogo',
   projectName: 'viagogo-api-docs',
+  deploymentBranch: 'gh-pages',
 
   presets: [
     redocusaurus,
@@ -109,11 +110,6 @@ const config = {
           },
           {to: '/blog', label: 'Announcements', position: 'left'},
           {
-            href: githubRepoUrl,
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
             label: ' API Reference',
             position: 'left',
             items: [
@@ -134,6 +130,12 @@ const config = {
                 to: '/api-reference/webhooks'
               },
             ]
+          },
+          {
+            href: githubRepoUrl,
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
