@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://viagogo.github.io/viagogo-api-docs/blog</id>
+    <id>https://developer.viagogo.net/blog</id>
     <title>viagogo API Blog</title>
     <updated>2018-06-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://viagogo.github.io/viagogo-api-docs/blog"/>
+    <link rel="alternate" href="https://developer.viagogo.net/blog"/>
     <subtitle>viagogo API Blog</subtitle>
-    <icon>https://viagogo.github.io/viagogo-api-docs/img/favicon.ico</icon>
+    <icon>https://developer.viagogo.net/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[TLS v1.0 Deprecation Notice]]></title>
         <id>/2018/06/30/tls-deprecation-notice</id>
-        <link href="https://viagogo.github.io/viagogo-api-docs/blog/2018/06/30/tls-deprecation-notice"/>
+        <link href="https://developer.viagogo.net/blog/2018/06/30/tls-deprecation-notice"/>
         <updated>2018-06-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[viagogo will be disabling support for TLS v1.0 on our public facing api. We are providing advanced notice so that our customers and partners can prepare accordingly. If you are using unsupported clients to connect to the viagogo API after disabling TLS v1.0, you will begin receiving connection error messages.]]></summary>
         <content type="html"><![CDATA[<p>viagogo will be disabling support for TLS v1.0 on our public facing api. We are providing advanced notice so that our customers and partners can prepare accordingly. If you are using unsupported clients to connect to the viagogo API after disabling TLS v1.0, you will begin receiving connection error messages.</p><p>:::warning</p><p><strong>Possible breaking change</strong>

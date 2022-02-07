@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkapi_docs=self.webpackChunkapi_docs||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"TLS v1.0 Deprecation Notice","permalink":"/blog/2018/06/30/tls-deprecation-notice"}]}')}}]);

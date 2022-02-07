@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapi_docs=self.webpackChunkapi_docs||[]).push([[431],{9260:function(e){e.exports=JSON.parse('{"permalink":"/viagogo-api-docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
