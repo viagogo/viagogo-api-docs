@@ -59,8 +59,8 @@ const redocusaurus = [
 const config = {
   title: 'viagogo API',
   tagline: "viagogo's Developer Portal",
-  url: 'https://viagogo.github.io/',
-  baseUrl: '/viagogo-api-docs/',
+  url: 'https://developer.viagogo.net/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
