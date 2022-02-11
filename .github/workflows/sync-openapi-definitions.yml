@@ -28,9 +28,6 @@ jobs:
       - name: Sync Webhooks API spec
         run: curl -o static/openapi/webhooks.json https://api.viagogo.net/v2/openapi/webhooks.json
 
-      - name: Sync Petstore API spec
-        run: curl -o static/openapi/petstore.yaml https://redocly.github.io/redoc/openapi.yaml
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
