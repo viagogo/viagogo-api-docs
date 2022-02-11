@@ -55,6 +55,16 @@ const redocusaurus = [
   },
 ];
 
+
+/** @type {[string, import('@docusaurus/types').PluginOptions]} */
+const docusaurusSearchLocal = [
+  require.resolve("@easyops-cn/docusaurus-search-local"),
+  {
+    hashed: true,
+    indexPages: true,
+  }
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'viagogo API',
@@ -91,6 +101,10 @@ const config = {
         },
       }),
     ],
+  ],
+
+  themes: [
+    docusaurusSearchLocal,
   ],
 
   themeConfig:
