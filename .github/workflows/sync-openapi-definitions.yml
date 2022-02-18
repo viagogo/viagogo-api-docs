@@ -35,3 +35,4 @@ jobs:
           body: "Automated changes by `.github/workflows/sync-openapi-definitions.yml`"
           reviewers: "akilburge"
           branch: "sync-openapi-definitions/patch"
+          delete-branch: true
