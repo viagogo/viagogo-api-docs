@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+require('dotenv').config();
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -55,16 +57,6 @@ const redocusaurus = [
   },
 ];
 
-
-/** @type {[string, import('@docusaurus/types').PluginOptions]} */
-const docusaurusSearchLocal = [
-  require.resolve("@easyops-cn/docusaurus-search-local"),
-  {
-    hashed: true,
-    indexPages: true,
-  }
-];
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'viagogo API',
@@ -101,10 +93,6 @@ const config = {
         },
       }),
     ],
-  ],
-
-  themes: [
-    docusaurusSearchLocal,
   ],
 
   themeConfig:
@@ -210,6 +198,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['csharp', 'php', 'ruby']
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALOGOLIA_SEARCH_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
       },
     }),
 };
