@@ -19,6 +19,9 @@ jobs:
       - name: Sync Account API spec
         run: curl -o static/openapi/account.json https://api.viagogo.net/v2/openapi/account.json
 
+      - name: Sync Catalog API spec
+        run: curl -o static/openapi/catalog.json https://api.viagogo.net/catalog/openapi/openapi.json
+
       - name: Sync Inventory API spec
         run: curl -o static/openapi/inventory.json https://api.viagogo.net/v2/openapi/inventory.json
 
