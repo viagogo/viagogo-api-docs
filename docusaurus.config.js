@@ -23,6 +23,11 @@ const redocusaurus = [
         routePath: '/api-reference/account',
       },
       {
+        id: 'catalog-api',
+        spec: './static/openapi/catalog.json',
+        routePath: '/api-reference/catalog',
+      },
+      {
         id: 'inventory-api',
         spec: './static/openapi/inventory.json',
         routePath: '/api-reference/inventory',
@@ -122,6 +127,10 @@ const config = {
               {
                 label: 'Account',
                 to: '/api-reference/account'
+              },
+              {
+                label: 'Catalog',
+                to: '/api-reference/catalog'
               },
               {
                 label: 'Inventory',
