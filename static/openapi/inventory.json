@@ -184,6 +184,62 @@
         ]
       }
     },
+    "/sellerlistings/recentupdates": {
+      "get": {
+        "tags": [
+          "SellerListings"
+        ],
+        "summary": "List seller listings (recent updates)",
+        "description": "List seller listings for the authenticated user that have been created or updated over a certain period of time.",
+        "operationId": "SellerListings_GetSellerListingsRecentUpdates",
+        "parameters": [
+          {
+            "name": "updated_since",
+            "in": "query",
+            "description": "Filters the response to only return items that have been updated since the given timestamp",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SellerListings"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found",
+            "description": null
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read:sellerlistings"
+            ]
+          }
+        ]
+      }
+    },
     "/sellerlistings": {
       "get": {
         "tags": [
