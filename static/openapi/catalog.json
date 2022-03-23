@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.10",
+    "version": "1.0.0.12",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -147,6 +147,120 @@
           "404": {
             "$ref": "#/components/responses/not_found",
             "description": null
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read:events"
+            ]
+          }
+        ]
+      }
+    },
+    "/events/search": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Search events",
+        "description": "Search for events on the viagogo platform. Use this endpoint to search the entire viagogo event catalog with your application.",
+        "operationId": "Events_SearchEvents",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The query text to be used to match events.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "dateLocal",
+            "in": "query",
+            "description": "The specific date of the event, this is optional",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Specifies which page of data to retrieve.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Set custom page sizes on response.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "updated_since",
+            "in": "query",
+            "description": "Filters the response to only return items that have been updated since the given timestamp",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Determines the ordering of items. A comma-separated string containing `resource_version`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "min_resource_version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Filters results to only include events located in the specified country."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Events"
+                }
+              }
+            }
           },
           "403": {
             "$ref": "#/components/responses/forbidden",
@@ -328,6 +442,14 @@
             "type": "boolean",
             "description": "True if the event start and end date have been confirmed; Otherwise, false."
           },
+          "min_ticket_price": {
+            "description": "The minimum ticket price of the event.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Money"
+              }
+            ]
+          },
           "_links": {
             "nullable": true,
             "oneOf": [
@@ -346,11 +468,41 @@
           }
         }
       },
+      "Money": {
+        "type": "object",
+        "description": "Returned for monetary values, such as ticket prices, fees charged and tax amounts.",
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "The decimal amount of the money.",
+            "format": "decimal",
+            "nullable": true
+          },
+          "currency_code": {
+            "type": "string",
+            "description": "The ISO 4217 currency code that the monetary value is represented in."
+          },
+          "display": {
+            "type": "string",
+            "description": "A user-friendly string representing the monetary value."
+          }
+        }
+      },
       "EventLinks": {
         "title": "EventLinks",
         "type": "object",
         "properties": {
           "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
+              }
+            ]
+          },
+          "event:webpage": {
+            "description": "Url on the website for the event",
             "nullable": true,
             "oneOf": [
               {
@@ -715,6 +867,11 @@
   ],
   "tags": [
     {
+      "name": "BasicType_Money",
+      "description": "Returned for monetary values, such as ticket prices, fees charged and tax amounts.\n<SchemaDefinition schemaRef=\"#/components/schemas/Money\" showReadOnly={true} showWriteOnly={true} />",
+      "x-displayName": "Money"
+    },
+    {
       "name": "Events",
       "description": "View events on the viagogo platform"
     },
@@ -734,6 +891,12 @@
       "name": "Endpoints",
       "tags": [
         "Events"
+      ]
+    },
+    {
+      "name": "Basic Types",
+      "tags": [
+        "BasicType_Money"
       ]
     },
     {
