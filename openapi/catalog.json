@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.12",
+    "version": "1.0.0.13",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -10,16 +10,16 @@
   },
   "servers": [
     {
-      "url": "https://api.viagogo.net/catalog",
+      "url": "https://api.viagogo.net",
       "description": "Production"
     },
     {
-      "url": "https://sandbox.api.viagogo.net/catalog",
+      "url": "https://sandbox.api.viagogo.net",
       "description": "Sandbox"
     }
   ],
   "paths": {
-    "/events": {
+    "/catalog/events": {
       "get": {
         "tags": [
           "Events"
@@ -114,7 +114,7 @@
         ]
       }
     },
-    "/events/{eventId}": {
+    "/catalog/events/{eventId}": {
       "get": {
         "tags": [
           "Events"
@@ -170,7 +170,7 @@
         ]
       }
     },
-    "/events/search": {
+    "/catalog/events/search": {
       "get": {
         "tags": [
           "Events"
