@@ -2992,6 +2992,10 @@
             "type": "string",
             "nullable": true
           },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "_links": {
             "nullable": true,
             "oneOf": [
