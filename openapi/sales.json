@@ -2660,9 +2660,9 @@
             "description": "Row of ticket.",
             "nullable": true
           },
-          "barcode_values": {
+          "barcode_values_sha256_hashed": {
             "type": "array",
-            "description": "Barcode(s) for this seat.",
+            "description": "SHA256-hashed barcode(s) for this seat.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -3130,7 +3130,7 @@
             "description": "The barcode(s) for the ticket(s).",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/BarcodeInformation"
+              "$ref": "#/components/schemas/BarcodeInformation2"
             }
           }
         }
@@ -3208,6 +3208,37 @@
           },
           "code_required": {
             "type": "boolean"
+          }
+        }
+      },
+      "BarcodeInformation2": {
+        "type": "object",
+        "description": "A set of barcodes for a seat.",
+        "additionalProperties": false,
+        "properties": {
+          "seat_ordinal": {
+            "type": "integer",
+            "description": "An ordinal number for a seat.",
+            "format": "int32",
+            "nullable": true
+          },
+          "seat": {
+            "type": "string",
+            "description": "Seat number.",
+            "nullable": true
+          },
+          "row": {
+            "type": "string",
+            "description": "Row of ticket.",
+            "nullable": true
+          },
+          "barcode_values": {
+            "type": "array",
+            "description": "Barcode(s) md5 hashed for this seat.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
