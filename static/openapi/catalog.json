@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.17",
+    "version": "1.0.0.19",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -528,6 +528,14 @@
               "$ref": "#/components/schemas/EmbeddedCategory"
             }
           },
+          "external_mappings": {
+            "type": "array",
+            "description": "The external mappings for this event",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedExternalMapping"
+            }
+          },
           "genre": {
             "description": "The genre for this event.",
             "nullable": true,
@@ -569,11 +577,70 @@
                 "$ref": "#/components/schemas/EmbeddedCategoryLinks"
               }
             ]
+          },
+          "_embedded": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedCategoryEmbeddedResources"
+              }
+            ]
           }
         }
       },
       "EmbeddedCategoryLinks": {
         "title": "EmbeddedCategoryLinks",
+        "type": "object",
+        "properties": {
+          "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
+              }
+            ]
+          }
+        }
+      },
+      "EmbeddedCategoryEmbeddedResources": {
+        "title": "EmbeddedCategoryEmbeddedResources",
+        "type": "object",
+        "properties": {
+          "external_mappings": {
+            "type": "array",
+            "description": "The external mappings for this category",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedExternalMapping"
+            }
+          }
+        }
+      },
+      "EmbeddedExternalMapping": {
+        "type": "object",
+        "description": "An external mapping between a resource on the viagogo platform and the same resource on another platforms. ",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The identifier of the resource in the external platform"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the external platform."
+          },
+          "_links": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedExternalMappingLinks"
+              }
+            ]
+          }
+        }
+      },
+      "EmbeddedExternalMappingLinks": {
+        "title": "EmbeddedExternalMappingLinks",
         "type": "object",
         "properties": {
           "self": {
@@ -664,6 +731,14 @@
                 "$ref": "#/components/schemas/Country"
               }
             ]
+          },
+          "external_mappings": {
+            "type": "array",
+            "description": "The external mappings for this venue",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedExternalMapping"
+            }
           }
         }
       },

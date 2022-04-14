@@ -679,7 +679,7 @@
           },
           "action": {
             "type": "string",
-            "description": "The action that triggered this webhook.",
+            "description": "The action that triggered this webhook. ",
             "nullable": true
           },
           "_links": {
@@ -1175,7 +1175,7 @@
           },
           "action": {
             "type": "string",
-            "description": "The action that triggered this webhook.",
+            "description": "The action that triggered this webhook. ",
             "nullable": true
           },
           "_links": {
@@ -1273,7 +1273,7 @@
           },
           "action": {
             "type": "string",
-            "description": "The action that triggered this webhook.",
+            "description": "The action that triggered this webhook. ",
             "nullable": true
           },
           "_links": {
@@ -1359,6 +1359,240 @@
           }
         }
       },
+      "SaleUpdatesTopic": {
+        "type": "object",
+        "description": "Triggered when an update related to the sale happens. You will need to filter by the action that you are interested in.",
+        "additionalProperties": false,
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "The topic of the webhook.",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+            "nullable": true
+          },
+          "_links": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SaleUpdatesTopicLinks"
+              }
+            ]
+          },
+          "_embedded": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SaleUpdatesTopicEmbeddedResources"
+              }
+            ]
+          }
+        }
+      },
+      "SaleUpdatesTopicLinks": {
+        "title": "SaleUpdatesTopicLinks",
+        "type": "object",
+        "properties": {
+          "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
+              }
+            ]
+          }
+        }
+      },
+      "SaleUpdatesTopicEmbeddedResources": {
+        "title": "SaleUpdatesTopicEmbeddedResources",
+        "type": "object",
+        "properties": {
+          "barcodes": {
+            "type": "array",
+            "description": "The barcodes that are linked to the sale.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BarcodeInformation"
+            }
+          },
+          "event": {
+            "description": "The event for this sale.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedEvent"
+              }
+            ]
+          },
+          "sale": {
+            "description": "The affected sale.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedSale"
+              }
+            ]
+          },
+          "seller_listing": {
+            "description": "The listing from which the tickets were sold.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedSellerListing"
+              }
+            ]
+          },
+          "venue": {
+            "description": "The venue where the event is taking place.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedVenue"
+              }
+            ]
+          },
+          "webhook": {
+            "description": "The subscribed webhook.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Webhook"
+              }
+            ]
+          }
+        }
+      },
+      "BarcodeInformation": {
+        "type": "object",
+        "description": "A set of barcodes for a seat.",
+        "additionalProperties": false,
+        "properties": {
+          "seat_ordinal": {
+            "type": "integer",
+            "description": "An ordinal number for a seat.",
+            "format": "int32",
+            "nullable": true
+          },
+          "seat": {
+            "type": "string",
+            "description": "Seat number.",
+            "nullable": true
+          },
+          "row": {
+            "type": "string",
+            "description": "Row of ticket.",
+            "nullable": true
+          },
+          "barcode_values_sha256_hashed": {
+            "type": "array",
+            "description": "SHA256-hashed barcode(s) for this seat.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SellerListingUpdatesTopic": {
+        "type": "object",
+        "description": "Triggered when an update related to the listing happens. You will need to filter by the action that you are interested in.",
+        "additionalProperties": false,
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "The topic of the webhook.",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+            "nullable": true
+          },
+          "_links": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SellerListingUpdatesTopicLinks"
+              }
+            ]
+          },
+          "_embedded": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SellerListingUpdatesTopicEmbeddedResources"
+              }
+            ]
+          }
+        }
+      },
+      "SellerListingUpdatesTopicLinks": {
+        "title": "SellerListingUpdatesTopicLinks",
+        "type": "object",
+        "properties": {
+          "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
+              }
+            ]
+          }
+        }
+      },
+      "SellerListingUpdatesTopicEmbeddedResources": {
+        "title": "SellerListingUpdatesTopicEmbeddedResources",
+        "type": "object",
+        "properties": {
+          "barcodes": {
+            "type": "array",
+            "description": "The barcodes that are linked to the listing.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BarcodeInformation"
+            }
+          },
+          "event": {
+            "description": "The event for this listing.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedEvent"
+              }
+            ]
+          },
+          "seller_listing": {
+            "description": "The affected listing.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedSellerListing"
+              }
+            ]
+          },
+          "venue": {
+            "description": "The venue where the event is taking place.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedVenue"
+              }
+            ]
+          },
+          "webhook": {
+            "description": "The subscribed webhook.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Webhook"
+              }
+            ]
+          }
+        }
+      },
       "PingTopic": {
         "type": "object",
         "description": "Triggered any time a Webhook is pinged.",
@@ -1371,7 +1605,7 @@
           },
           "action": {
             "type": "string",
-            "description": "The action that triggered this webhook.",
+            "description": "The action that triggered this webhook. ",
             "nullable": true
           },
           "_links": {
@@ -1635,7 +1869,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "description": "The action that triggered this webhook.",
+                    "description": "The action that triggered this webhook. ",
                     "nullable": true
                   },
                   "_links": {
@@ -1704,7 +1938,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "description": "The action that triggered this webhook.",
+                    "description": "The action that triggered this webhook. ",
                     "nullable": true
                   },
                   "_links": {
@@ -1773,7 +2007,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "description": "The action that triggered this webhook.",
+                    "description": "The action that triggered this webhook. ",
                     "nullable": true
                   },
                   "_links": {
@@ -1789,6 +2023,144 @@
                     "oneOf": [
                       {
                         "$ref": "#/components/schemas/CancelProvisionalSaleTopicEmbeddedResources"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The data was received successfully."
+          }
+        }
+      }
+    },
+    "sale-updates": {
+      "post": {
+        "tags": [
+          "Topics"
+        ],
+        "summary": "SaleUpdatesTopicResource",
+        "description": "Triggered when an update related to the sale happens. You will need to filter by the action that you are interested in.",
+        "parameters": [
+          {
+            "description": "Name of the topic that triggered this delivery",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Ping"
+          },
+          {
+            "description": "Unique identifier for this delivery",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1993433"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Triggered when an update related to the sale happens. You will need to filter by the action that you are interested in.",
+                "additionalProperties": false,
+                "properties": {
+                  "topic": {
+                    "type": "string",
+                    "description": "The topic of the webhook.",
+                    "nullable": true
+                  },
+                  "action": {
+                    "type": "string",
+                    "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+                    "nullable": true
+                  },
+                  "_links": {
+                    "nullable": true,
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/SaleUpdatesTopicLinks"
+                      }
+                    ]
+                  },
+                  "_embedded": {
+                    "nullable": true,
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/SaleUpdatesTopicEmbeddedResources"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The data was received successfully."
+          }
+        }
+      }
+    },
+    "sellerlisting-updates": {
+      "post": {
+        "tags": [
+          "Topics"
+        ],
+        "summary": "SellerListingUpdatesTopicResource",
+        "description": "Triggered when an update related to the listing happens. You will need to filter by the action that you are interested in.",
+        "parameters": [
+          {
+            "description": "Name of the topic that triggered this delivery",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Ping"
+          },
+          {
+            "description": "Unique identifier for this delivery",
+            "schema": {
+              "type": "string"
+            },
+            "example": "1993433"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Triggered when an update related to the listing happens. You will need to filter by the action that you are interested in.",
+                "additionalProperties": false,
+                "properties": {
+                  "topic": {
+                    "type": "string",
+                    "description": "The topic of the webhook.",
+                    "nullable": true
+                  },
+                  "action": {
+                    "type": "string",
+                    "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+                    "nullable": true
+                  },
+                  "_links": {
+                    "nullable": true,
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/SellerListingUpdatesTopicLinks"
+                      }
+                    ]
+                  },
+                  "_embedded": {
+                    "nullable": true,
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/SellerListingUpdatesTopicEmbeddedResources"
                       }
                     ]
                   }
@@ -1842,7 +2214,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "description": "The action that triggered this webhook.",
+                    "description": "The action that triggered this webhook. ",
                     "nullable": true
                   },
                   "_links": {
