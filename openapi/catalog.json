@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.19",
+    "version": "1.0.0.20",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -625,9 +625,9 @@
             "type": "string",
             "description": "The identifier of the resource in the external platform"
           },
-          "name": {
+          "platform_name": {
             "type": "string",
-            "description": "The name of the external platform."
+            "description": "The name of the external platform. Can be `legacy_stubhub`."
           },
           "_links": {
             "nullable": true,
