@@ -3545,7 +3545,7 @@
           },
           "barcode_values": {
             "type": "array",
-            "description": "Barcode(s) md5 hashed for this seat.",
+            "description": "Barcode(s) values for this seat.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -4679,6 +4679,14 @@
         "title": "SellerEventEmbeddedResources",
         "type": "object",
         "properties": {
+          "external_mappings": {
+            "type": "array",
+            "description": "The external mappings for this event",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/EmbeddedExternalMapping"
+            }
+          },
           "sales_aggregates": {
             "type": "array",
             "description": "The currently authenticated user's aggregated sales data for this event.",
@@ -4693,6 +4701,45 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/EmbeddedVenue"
+              }
+            ]
+          }
+        }
+      },
+      "EmbeddedExternalMapping": {
+        "type": "object",
+        "description": "An external mapping between a resource on the viagogo platform and the same resource on another platforms. ",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The identifier of the resource in the external platform",
+            "nullable": true
+          },
+          "platform_name": {
+            "type": "string",
+            "description": "The name of the external platform. Can be `legacy_stubhub`",
+            "nullable": true
+          },
+          "_links": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmbeddedExternalMappingLinks"
+              }
+            ]
+          }
+        }
+      },
+      "EmbeddedExternalMappingLinks": {
+        "title": "EmbeddedExternalMappingLinks",
+        "type": "object",
+        "properties": {
+          "self": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Link"
               }
             ]
           }
