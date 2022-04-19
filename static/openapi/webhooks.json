@@ -2043,7 +2043,7 @@
         "tags": [
           "Topics"
         ],
-        "summary": "SaleUpdatesTopicResource",
+        "summary": "SaleUpdates",
         "description": "Triggered when an update related to the sale happens. You will need to filter by the action that you are interested in.",
         "parameters": [
           {
@@ -2112,7 +2112,7 @@
         "tags": [
           "Topics"
         ],
-        "summary": "SellerListingUpdatesTopicResource",
+        "summary": "SellerListingUpdates",
         "description": "Triggered when an update related to the listing happens. You will need to filter by the action that you are interested in.",
         "parameters": [
           {
