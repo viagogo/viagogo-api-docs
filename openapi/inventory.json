@@ -2186,6 +2186,11 @@
             "type": "boolean",
             "nullable": true
           },
+          "undeliverable": {
+            "type": "boolean",
+            "description": "Shipment of the ticket to the buyer cannot be guaranteed before the event. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
+            "nullable": true
+          },
           "purchase_price_per_ticket": {
             "description": "The purchase price paid by the seller for each ticket in the listing.",
             "nullable": true,
@@ -2303,6 +2308,11 @@
           "row": {
             "type": "string",
             "description": "Row of ticket.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the barcode. Can be `Received` or `FailedValidation`",
             "nullable": true
           },
           "barcode_values_sha256_hashed": {
