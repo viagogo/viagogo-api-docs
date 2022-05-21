@@ -1361,7 +1361,7 @@
       },
       "SaleUpdatesTopic": {
         "type": "object",
-        "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is FailedBarcodeValidation which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
+        "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is `FailedBarcodeValidation` which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
         "additionalProperties": false,
         "properties": {
           "topic": {
@@ -1495,7 +1495,7 @@
       },
       "SellerListingUpdatesTopic": {
         "type": "object",
-        "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are “FailedBarcodeValidation” and “ListingDeliverabilityExpired”. “FailedBarcodeValidation” will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. “ListingDeliverabilityExpired” will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
+        "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are `FailedBarcodeValidation` and `ListingDeliverabilityExpired`. `FailedBarcodeValidation` will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. `ListingDeliverabilityExpired` will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
         "additionalProperties": false,
         "properties": {
           "topic": {
@@ -1505,7 +1505,7 @@
           },
           "action": {
             "type": "string",
-            "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+            "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation` or `ListingDeliverabilityExpired`",
             "nullable": true
           },
           "_links": {
@@ -2041,7 +2041,7 @@
           "Topics"
         ],
         "summary": "SaleUpdates",
-        "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is FailedBarcodeValidation which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
+        "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is `FailedBarcodeValidation` which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
         "parameters": [
           {
             "description": "Name of the topic that triggered this delivery",
@@ -2063,7 +2063,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is FailedBarcodeValidation which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
+                "description": "Triggered when an update is made to a sale that you did not initiate. You will need to filter by the action that you are interested in. The currently support action is `FailedBarcodeValidation` which will tell you if validation of a set of barcodes uploaded against an order has failed, and barcodes need re-uploading.",
                 "additionalProperties": false,
                 "properties": {
                   "topic": {
@@ -2110,7 +2110,7 @@
           "Topics"
         ],
         "summary": "SellerListingUpdates",
-        "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are “FailedBarcodeValidation” and “ListingDeliverabilityExpired”. “FailedBarcodeValidation” will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. “ListingDeliverabilityExpired” will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
+        "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are `FailedBarcodeValidation` and `ListingDeliverabilityExpired`. `FailedBarcodeValidation` will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. `ListingDeliverabilityExpired` will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
         "parameters": [
           {
             "description": "Name of the topic that triggered this delivery",
@@ -2132,7 +2132,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are “FailedBarcodeValidation” and “ListingDeliverabilityExpired”. “FailedBarcodeValidation” will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. “ListingDeliverabilityExpired” will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
+                "description": "Triggered when an update is made to a listing that you did not initiate. You will need to filter by the action that you are interested in. The currently support actions are `FailedBarcodeValidation` and `ListingDeliverabilityExpired`. `FailedBarcodeValidation` will tell you if validation of a set of barcodes uploaded against a listing has failed, and barcodes need re-uploading. `ListingDeliverabilityExpired` will tell you that a listing is not longer deliverable to a customer. To increase the deliverability of electronic type tickets, preupload them (e.g. pre-upload barcodes or PDF files.) To increase deliverability of paper tickets, opt your tickets into our LMS program.",
                 "additionalProperties": false,
                 "properties": {
                   "topic": {
@@ -2142,7 +2142,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation`",
+                    "description": "The action that trigger this webhook. Can be `FailedBarcodeValidation` or `ListingDeliverabilityExpired`",
                     "nullable": true
                   },
                   "_links": {
