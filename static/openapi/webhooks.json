@@ -1266,14 +1266,6 @@
           "title": "ProvisionalSaleTopicEmbeddedResources",
           "type": "object",
           "properties": {
-            "barcodes": {
-              "type": "array",
-              "description": "The barcodes that are linked to the sale.",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/BarcodeInformation"
-              }
-            },
             "event": {
               "description": "The event for this sale.",
               "nullable": true,
