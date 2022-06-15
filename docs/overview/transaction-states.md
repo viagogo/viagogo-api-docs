@@ -44,4 +44,4 @@ Other states are possible. Below are the edge-case states and what you should do
 |WaitForShippingDetails | Wait for Buyer Address Update | Tickets cannot currently be delivered to the buyer. Buyer must re-enter delivery information. | Wait for the buyer to update their delivery information | 
 |WaitUntil2DaysBeforeTheEvent | Wait until 3 days before the event | Fulfilment must be done 2 days before the event | Wait until 2 days before the event then attempt fulfilment | 
 |DropOffTickets | Deliver by Hand | You have opted to hand-deliver the tickets to the customer |  Deliver tickets to the buyer | 
-|UploadReservationCode | Upload Reservation Code | The order is ready to have access codes uploaded |  Add access codes to the order (must be done via Seller Portal) |  
+|UploadReservationCode | Upload Reservation Code | The order is ready to have access codes uploaded |  Add access codes to the order (must be done via Seller Portal) | 
