@@ -31,6 +31,7 @@ const sidebars = {
         'overview/localization',
         'overview/sparse-fieldsets',
         'overview/error-responses',
+        'overview/transaction-states',
       ]
     },
     {
