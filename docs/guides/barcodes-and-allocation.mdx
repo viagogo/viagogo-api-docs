@@ -1,0 +1,25 @@
+How allocation of barcodes works is nuanced. It is important to understand how allocation works as misallocation can quickly lead to double sales.
+
+-	Barcodes can be preuploaded against a listing. This can be done either by creating the listing with, or updating a listing to have, a barcodes property- see here in documentation, barcode property:
+
+ 
+
+-	Any listing can have barcodes set against them. If the event is configured to sell as barcodes and barcodes have been uploaded against the listing, then sales will come through with seats already assigned. You can tell which seats have been assigned from either the webhook, or the sale object itself (see here and here.) Important the barcode is embedded within the sale in the GetSale endpoint, but not in the webhook. Missing this nuance can mean you miss the allocation.:
+
+ 
+-	Preuploaded barcodes are allocated from sales low to high based on the sort order property provided when setting the barcodes against the listing. If you want to force Stubhub to allocated high to low, reverse the sort order vs the seats:
+
+ 
+
+o	Allocate low to high:
+``[
+{“seat_ordinal”:0, “row”:”A”,“seat”:”1”,”barcode_values”:[“12345”]},
+{“seat_ordinal”:1, “row”:”A”,“seat”:”2”,”barcode_values”:[“12346”]},
+]
+o	Allocate high to low:
+[
+{“seat_ordinal”:1, “row”:”A”,“seat”:”1”,”barcode_values”:[“12345”]},
+{“seat_ordinal”:0, “row”:”A”,“seat”:”2”,”barcode_values”:[“12346”]},
+]
+
+-	Some events, at certain times, for certain sellers will require barcodes to be preuploaded. If you create a listing without barcodes for an event that requires barcodes, the undeliverable boolean on the listing will be set to true and the listing will not be purchasable. Remedy this by adding the barcodes to the listing. As preupload can become required at any time, a webhook is available to notify you when a listing becomes undeliverable (see here). 
