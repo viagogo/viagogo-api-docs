@@ -22,21 +22,31 @@ Any listing can have barcodes set against them. If the event is configured to se
 
 ### Low-to-High or High-to-Low Allocation.
 
-Preuploaded barcodes are allocated to sales based on the `seat_ordinal` property provided when setting the barcodes against the listing. Barcodes are allocated from the lowest available `seat_ordinal` up. If you want to force Stubhub to allocate high to low, reverse the `seat_ordinal` order vs the seats - see example below.
+Preuploaded barcodes are allocated to sales based on the `seat_ordinal` property provided when setting the barcodes against the listing. Barcodes are allocated from the lowest available `seat_ordinal` up. If you want to force Stubhub to allocate high to low, reverse the `seat_ordinal` order vs the seats - see examples below.
 
 #### Allocate low to high:
+
+To allocate seats 1-4 low to high, list the tickets with a `barcodes` property where `seat_ordinal` ascends as `seat` ascends:
+
 ```json
 [
    {"seat_ordinal":0, "row":"A","seat":"1","barcode_values":["12345"]},
    {"seat_ordinal":1, "row":"A","seat":"2","barcode_values":["12346"]},
+   {"seat_ordinal":2, "row":"A","seat":"3","barcode_values":["12347"]},
+   {"seat_ordinal":3, "row":"A","seat":"4","barcode_values":["12348"]},
 ]
 ```
 
 #### Allocate high to low:
+
+To allocate seats 1-4 high to low, list the tickets with a `barcodes` property where `seat_ordinal` descends as `seat` ascends:
+
 ```json
 [
-   {"seat_ordinal":1, "row":"A","seat":"1","barcode_values":["12345"]},
-   {"seat_ordinal":0, "row":"A","seat":"2","barcode_values":["12346"]},
+   {"seat_ordinal":3, "row":"A","seat":"1","barcode_values":["12345"]},
+   {"seat_ordinal":2, "row":"A","seat":"2","barcode_values":["12346"]},
+   {"seat_ordinal":1, "row":"A","seat":"3","barcode_values":["12347"]},
+   {"seat_ordinal":0, "row":"A","seat":"4","barcode_values":["12348"]},
 ]
 ```
 
