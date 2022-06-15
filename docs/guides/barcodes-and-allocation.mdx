@@ -20,9 +20,9 @@ Any listing can have barcodes set against them. If the event is configured to se
 
 **Important**: the barcode is embedded within the sale in the GetSale endpoint, but not in the webhook. Missing this nuance can mean you miss the allocation.
 
-### Forcing Allocation
+### Low-to-High or High-to-Low Allocation.
 
-Preuploaded barcodes are allocated from sales low to high based on the `seat_ordinal` property provided when setting the barcodes against the listing. If you want to force Stubhub to allocated high to low, reverse the sort order vs the seats.
+Preuploaded barcodes are allocated to sales based on the `seat_ordinal` property provided when setting the barcodes against the listing. Barcodes are allocated from the lowest available `seat_ordinal` up. If you want to force Stubhub to allocate high to low, reverse the `seat_ordinal` order vs the seats - see example below.
 
 #### Allocate low to high:
 ```json
