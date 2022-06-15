@@ -57,6 +57,7 @@ const sidebars = {
       },
       items: [
         'guides/creating-a-listing',
+        'guides/barcodes-and-allocation',
       ]
     },
   ],
