@@ -2259,48 +2259,31 @@
             "description": "The last in a contiguous block of seats to which the tickets have been allocated.",
             "nullable": true
           },
-          "mapping_status": {
+          "seating_state": {
             "description": "This field indicates whether the listing's seating is mapped to a venue's corresponding section.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/MappingStatus"
+                "$ref": "#/components/schemas/SeatingState"
               }
             ]
           }
         }
       },
-      "MappingStatus": {
+      "SeatingState": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "status": {
+          "state": {
+            "type": "string",
             "description": "This field indicates whether the seating is mapped, currently only mapped and unmapped is used.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/MappingStatusEnum"
-              }
-            ]
+            "nullable": true
+          },
+          "available_in_website_venue_map ": {
+            "type": "boolean",
+            "description": "This boolean field indicates whether the seating is mapped to the venue and will show up in the website."
           }
         }
-      },
-      "MappingStatusEnum": {
-        "type": "integer",
-        "description": "",
-        "x-enumNames": [
-          "Unknown",
-          "Mapped",
-          "Unmapped",
-          "Ignored",
-          "Rejected"
-        ],
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ]
       },
       "Money": {
         "type": "object",
