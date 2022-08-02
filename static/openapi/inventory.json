@@ -2259,8 +2259,8 @@
             "description": "The last in a contiguous block of seats to which the tickets have been allocated.",
             "nullable": true
           },
-          "seating_state": {
-            "description": "This field indicates whether the listing's seating is mapped to a venue's corresponding section.",
+          "state": {
+            "description": "This field indicates whether the listing's seating is visible on the website on the venue map.",
             "nullable": true,
             "oneOf": [
               {
@@ -2274,14 +2274,9 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "state": {
-            "type": "string",
-            "description": "This field indicates whether the seating is mapped, currently only mapped and unmapped is used.",
-            "nullable": true
-          },
-          "available_in_website_venue_map ": {
+          "visible_in_venue_map": {
             "type": "boolean",
-            "description": "This boolean field indicates whether the seating is mapped to the venue and will show up in the website."
+            "description": "True when the seat is visible in the venue map that will be shown to buyers; Otherwise, false."
           }
         }
       },
