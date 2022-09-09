@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.37",
+    "version": "1.0.0.39",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -118,7 +118,7 @@
           "Events"
         ],
         "summary": "List events by event ids.",
-        "description": "List a specified set of events on the viagogo platform.",
+        "description": "List a specified set of events on the viagogo platform. Note that the eventID being passed can already be merged with another event. And in this case, details of the new event will be returned, if a different eventId is returned then it means that the event has been merged with the returned event. Also inside _embedded field of the response, a mapping between the original eventId and new eventId will be provided. ",
         "operationId": "Events_GetEventsByEventIds",
         "parameters": [
           {
@@ -294,6 +294,7 @@
           "Events"
         ],
         "summary": "Get an event",
+        "description": "Note that the eventID being passed can already be merged with another event. And in this case, details of the new event will be returned, if a different eventId is returned then it means that the event has been merged with the returned event. Also inside _embedded field of the response, a mapping between the original eventId and new eventId will be provided.",
         "operationId": "Events_GetEvent",
         "parameters": [
           {
@@ -869,6 +870,14 @@
               }
             ]
           },
+          "merged_events": {
+            "type": "array",
+            "description": "The events that have been merged into this event.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
+            }
+          },
           "venue": {
             "description": "The venue where the event is taking place.",
             "nullable": true,
@@ -942,6 +951,14 @@
             "items": {
               "$ref": "#/components/schemas/EmbeddedExternalMapping"
             }
+          },
+          "merged_categories": {
+            "type": "array",
+            "description": "The categories that have been merged into this category.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
+            }
           }
         }
       },
@@ -979,6 +996,18 @@
                 "$ref": "#/components/schemas/Link"
               }
             ]
+          }
+        }
+      },
+      "MergedEntity": {
+        "type": "object",
+        "description": "An entity that has been merged into another entity.",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The identifier for this entity.",
+            "format": "int32"
           }
         }
       },
@@ -1038,6 +1067,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/EmbeddedExternalMapping"
+            }
+          },
+          "merged_categories": {
+            "type": "array",
+            "description": "The categories that have been merged into this category.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
             }
           }
         }
