@@ -1901,6 +1901,77 @@
             ]
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "E-Tickets"
+        ],
+        "summary": "Upload and save e-tickets for a seller listing",
+        "operationId": "ETicket_PostListingETickets",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Specifies which page of data to retrieve.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Set custom page sizes on response.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ETickets"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "400": {
+            "$ref": "#/components/responses/validation_failed",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "write:sellerlistings"
+            ]
+          }
+        ]
       }
     },
     "/sellerlistings/{listingId}/etickets/{ETicketId}": {
@@ -3092,6 +3163,14 @@
             "description": "True if the event start and end date have been confirmed; Otherwise, false.",
             "nullable": true
           },
+          "merged_events": {
+            "type": "array",
+            "description": "The list of event ids that are merged into this event.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
+            }
+          },
           "_links": {
             "nullable": true,
             "oneOf": [
@@ -3099,6 +3178,18 @@
                 "$ref": "#/components/schemas/EmbeddedEventLinks"
               }
             ]
+          }
+        }
+      },
+      "MergedEntity": {
+        "type": "object",
+        "description": "An entity that has been merged into another entity.",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The identifier for this entity.",
+            "format": "int32"
           }
         }
       },
@@ -4683,6 +4774,14 @@
             "description": "True if the event start and end date have been confirmed; Otherwise, false.",
             "nullable": true
           },
+          "merged_events": {
+            "type": "array",
+            "description": "The list of event ids that are merged into this event.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
+            }
+          },
           "lms": {
             "type": "boolean",
             "description": "True if the event is a last minute sale event; otherwise, false.",
@@ -4844,6 +4943,28 @@
                 "$ref": "#/components/schemas/SalesAggregateLinks"
               }
             ]
+          }
+        }
+      },
+      "StateInformation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -5543,28 +5664,6 @@
                 "$ref": "#/components/schemas/Link"
               }
             ]
-          }
-        }
-      },
-      "StateInformation": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
