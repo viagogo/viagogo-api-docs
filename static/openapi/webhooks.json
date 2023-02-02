@@ -61,15 +61,14 @@
             "content": {
               "application/hal+json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/Webhooks"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Webhooks"
                 }
               }
             }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found",
+            "description": null
           },
           "403": {
             "$ref": "#/components/responses/forbidden",
@@ -448,14 +447,6 @@
             ]
           },
           "prev": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "webhook:create": {
             "nullable": true,
             "oneOf": [
               {
@@ -848,6 +839,14 @@
             "description": "True if the event start and end date have been confirmed; Otherwise, false.",
             "nullable": true
           },
+          "merged_events": {
+            "type": "array",
+            "description": "The list of event ids that are merged into this event.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MergedEntity"
+            }
+          },
           "_links": {
             "nullable": true,
             "oneOf": [
@@ -855,6 +854,18 @@
                 "$ref": "#/components/schemas/EmbeddedEventLinks"
               }
             ]
+          }
+        }
+      },
+      "MergedEntity": {
+        "type": "object",
+        "description": "An entity that has been merged into another entity.",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The identifier for this entity.",
+            "format": "int32"
           }
         }
       },
