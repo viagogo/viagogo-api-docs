@@ -3375,7 +3375,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Seating"
+                "$ref": "#/components/schemas/SeatingRequest"
               }
             ]
           },
@@ -3464,6 +3464,12 @@
               "format": "int32"
             }
           },
+          "relist_transaction_id": {
+            "type": "integer",
+            "description": "Used when relisting tickets previously purchased on Stubhub marketplace. Include the transaction ID in the id value field.",
+            "format": "int32",
+            "nullable": true
+          },
           "external_event_information": {
             "type": "array",
             "description": "Information about the listing's event on other platforms.",
@@ -3505,7 +3511,7 @@
           }
         }
       },
-      "Seating": {
+      "SeatingRequest": {
         "type": "object",
         "description": "Represents the seating information for a ticket(s) in a Venue.",
         "additionalProperties": false,
@@ -3531,6 +3537,11 @@
           "seat_to": {
             "type": "string",
             "description": "The last in a contiguous block of seats to which the tickets have been allocated.",
+            "nullable": true
+          },
+          "hide_seat_details": {
+            "type": "boolean",
+            "description": "Do not display seats pre-purchase. May affect listing visibility in some regions.",
             "nullable": true
           }
         }
@@ -3625,6 +3636,9 @@
           "pcid": {
             "type": "string",
             "nullable": true
+          },
+          "hide_seat_details": {
+            "type": "boolean"
           }
         }
       },
@@ -3860,7 +3874,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Seating"
+                "$ref": "#/components/schemas/SeatingRequest"
               }
             ]
           },
@@ -3948,6 +3962,12 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          "relist_transaction_id": {
+            "type": "integer",
+            "description": "Used when relisting tickets previously purchased on Stubhub marketplace. Include the transaction ID in the id value field.",
+            "format": "int32",
+            "nullable": true
           },
           "external_event_information": {
             "type": "array",
@@ -4050,7 +4070,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Seating"
+                "$ref": "#/components/schemas/SeatingRequest"
               }
             ]
           },
@@ -4138,6 +4158,12 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          "relist_transaction_id": {
+            "type": "integer",
+            "description": "Used when relisting tickets previously purchased on Stubhub marketplace. Include the transaction ID in the id value field.",
+            "format": "int32",
+            "nullable": true
           },
           "external_event_information": {
             "type": "array",
@@ -4284,7 +4310,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Seating"
+                "$ref": "#/components/schemas/SeatingRequest"
               }
             ]
           },
@@ -4372,6 +4398,12 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          "relist_transaction_id": {
+            "type": "integer",
+            "description": "Used when relisting tickets previously purchased on Stubhub marketplace. Include the transaction ID in the id value field.",
+            "format": "int32",
+            "nullable": true
           },
           "external_event_information": {
             "type": "array",
@@ -4475,7 +4507,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Seating"
+                "$ref": "#/components/schemas/SeatingRequest"
               }
             ]
           },
@@ -4563,6 +4595,12 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          "relist_transaction_id": {
+            "type": "integer",
+            "description": "Used when relisting tickets previously purchased on Stubhub marketplace. Include the transaction ID in the id value field.",
+            "format": "int32",
+            "nullable": true
           },
           "external_event_information": {
             "type": "array",
@@ -4782,11 +4820,6 @@
               "$ref": "#/components/schemas/MergedEntity"
             }
           },
-          "lms": {
-            "type": "boolean",
-            "description": "True if the event is a last minute sale event; otherwise, false.",
-            "nullable": true
-          },
           "_links": {
             "nullable": true,
             "oneOf": [
@@ -4794,6 +4827,11 @@
                 "$ref": "#/components/schemas/SellerEventLinks"
               }
             ]
+          },
+          "lms": {
+            "type": "boolean",
+            "description": "True if the event is a last minute sale event; otherwise, false.",
+            "nullable": true
           },
           "_embedded": {
             "nullable": true,
