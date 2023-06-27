@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.58",
+    "version": "1.0.0.61",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -117,6 +117,15 @@
               "type": "integer",
               "description": "Filters results to only include events for the specified genre id.",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "exclude_parking_passes",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "description": "Filters results to remove parking passes",
               "nullable": true
             }
           }
@@ -250,6 +259,15 @@
               "type": "integer",
               "description": "Filters results to only include events for the specified genre id.",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "exclude_parking_passes",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "description": "Filters results to remove parking passes",
               "nullable": true
             }
           }
@@ -409,6 +427,15 @@
               "type": "integer",
               "description": "Filters results to only include events for the specified genre id.",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "exclude_parking_passes",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "description": "Filters results to remove parking passes",
               "nullable": true
             }
           }
@@ -686,6 +713,15 @@
               "type": "integer",
               "description": "Filters results to only include events for the specified genre id.",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "exclude_parking_passes",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "description": "Filters results to remove parking passes",
               "nullable": true
             }
           }
