@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.62",
+    "version": "1.0.0.65",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -622,6 +622,160 @@
               "type": "string",
               "format": "date-time",
               "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Specifies which page of data to retrieve.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Set custom page sizes on response.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "updated_since",
+            "in": "query",
+            "description": "Filters the response to only return items that have been updated since the given timestamp",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Determines the ordering of items. A comma-separated string containing `resource_version`.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "min_resource_version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "Filters results to only include events located in the specified country."
+            }
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "description": "When provided with longitude and distance filters events returned to ones within the specified distance of the lat/long.",
+              "format": "double",
+              "nullable": true
+            }
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "description": "When provided with latitude and distance filters events returned to ones within the specified distance of the lat/long.",
+              "format": "double",
+              "nullable": true
+            }
+          },
+          {
+            "name": "max_distance_in_meters",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "description": "When provided with latitude and longitude filters events returned to ones within the specified distance of the lat/long.",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "genre_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "description": "Filters results to only include events for the specified genre id.",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "exclude_parking_passes",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "description": "Filters results to remove parking passes",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Events"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read:events"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalog/categories/{categoryId}/allevents": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get all events under a CategoryId",
+        "description": "Finds all CategoryIds under the parents, and finds all events under all of them- de-duped by storing in a HashSet.",
+        "operationId": "Events_GetAllEventsByCategoryId",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "description": "CategoryId for which we want all events",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           },
           {
