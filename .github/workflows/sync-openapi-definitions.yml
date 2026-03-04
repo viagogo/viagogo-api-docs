@@ -14,7 +14,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Sync Account API spec
         run: curl -o static/openapi/account.json https://api.viagogo.net/v2/openapi/account.json
@@ -32,7 +32,7 @@ jobs:
         run: curl -o static/openapi/webhooks.json https://api.viagogo.net/v2/openapi/webhooks.json
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           title: "Sync latest changes to OpenAPI definitions"
           body: "Automated changes by `.github/workflows/sync-openapi-definitions.yml`"
