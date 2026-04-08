@@ -314,94 +314,6 @@
         ]
       }
     },
-    "/listings/{listingId}/paymentmethods": {
-      "put": {
-        "tags": [
-          "PaymentMethods"
-        ],
-        "summary": "List payment methods for a listing",
-        "operationId": "PaymentMethods_GetListingPaymentMethods",
-        "parameters": [
-          {
-            "name": "listingId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Specifies which page of data to retrieve.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "page_size",
-            "in": "query",
-            "description": "Set custom page sizes on response.",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "x-name": "body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/PutListingPaymentMethodsRequest"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/hal+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentMethods"
-                }
-              }
-            }
-          },
-          "403": {
-            "$ref": "#/components/responses/forbidden",
-            "description": null
-          },
-          "400": {
-            "$ref": "#/components/responses/validation_failed",
-            "description": null
-          },
-          "401": {
-            "$ref": "#/components/responses/requires_authentication",
-            "description": null
-          },
-          "500": {
-            "$ref": "#/components/responses/internal_server_error",
-            "description": null
-          }
-        },
-        "security": [
-          {
-            "OAuth2": [
-              "read:user"
-            ]
-          }
-        ]
-      }
-    },
     "/user": {
       "get": {
         "tags": [
@@ -928,121 +840,6 @@
           }
         }
       },
-      "PaymentMethods": {
-        "type": "object",
-        "description": "The PaymentMethods resource is a collection resource that contains zero\nor more references to a set of payment methods, and links that guide you\non ways to interact with the payment methods. The collection offers a\npaginated view of payment methods.",
-        "additionalProperties": false,
-        "properties": {
-          "total_items": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "page": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "page_size": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "_links": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/PaymentMethodsLinks"
-              }
-            ]
-          },
-          "_embedded": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/PaymentMethodsEmbeddedResources"
-              }
-            ]
-          }
-        }
-      },
-      "PaymentMethodsLinks": {
-        "title": "PaymentMethodsLinks",
-        "type": "object",
-        "properties": {
-          "self": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "first": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "last": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "next": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "paymentmethod:createcreditcard": {
-            "description": "Adds a new credit card for the current user.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "paymentmethod:createpaypal": {
-            "description": "Adds a new PayPal account for the current user.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          },
-          "prev": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Link"
-              }
-            ]
-          }
-        }
-      },
-      "PaymentMethodsEmbeddedResources": {
-        "title": "PaymentMethodsEmbeddedResources",
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/PaymentMethod"
-            }
-          }
-        }
-      },
       "PaymentMethod": {
         "type": "object",
         "description": "A method to send or receive payment.",
@@ -1175,38 +972,6 @@
             "description": "The type details for this payment method.",
             "nullable": true,
             "additionalProperties": {}
-          }
-        }
-      },
-      "PutListingPaymentMethodsRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "number_of_tickets": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "delivery_address_id": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "delivery_method_id": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "coupons": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "pickup_full_name": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
@@ -1490,9 +1255,6 @@
       "name": "Addresses"
     },
     {
-      "name": "PaymentMethods"
-    },
-    {
       "name": "Resource_Address",
       "description": "An address is a delivery, pickup or billing address associated with the current user.\n<SchemaDefinition schemaRef=\"#/components/schemas/Address\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Address"
@@ -1501,11 +1263,6 @@
       "name": "Resource_Addresss",
       "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/Addresss\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Addresss"
-    },
-    {
-      "name": "Resource_PaymentMethods",
-      "description": "The PaymentMethods resource is a collection resource that contains zero\nor more references to a set of payment methods, and links that guide you\non ways to interact with the payment methods. The collection offers a\npaginated view of payment methods.\n<SchemaDefinition schemaRef=\"#/components/schemas/PaymentMethods\" showReadOnly={true} showWriteOnly={true} />",
-      "x-displayName": "PaymentMethods"
     },
     {
       "name": "Resource_User",
@@ -1521,7 +1278,6 @@
       "name": "Endpoints",
       "tags": [
         "Addresses",
-        "PaymentMethods",
         "User"
       ]
     },
@@ -1530,7 +1286,6 @@
       "tags": [
         "Resource_Address",
         "Resource_Addresss",
-        "Resource_PaymentMethods",
         "Resource_User"
       ]
     }
