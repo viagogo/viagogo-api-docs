@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "viagogo Catalog API",
-    "version": "1.0.0.40",
+    "version": "1.0.0.42",
     "x-logo": {
       "url": "https://img.vggcdn.net/img/assets/logo/viagogo_logo_apidocs.png",
       "backgroundColor": "#222222"
@@ -1034,6 +1034,62 @@
         ]
       }
     },
+    "/catalog/venues/configurations/{configId}": {
+      "get": {
+        "tags": [
+          "Venue Configurations"
+        ],
+        "summary": "Get a venue configuration",
+        "operationId": "VenueConfigurations_GetVenueConfiguration",
+        "parameters": [
+          {
+            "name": "configId",
+            "in": "path",
+            "required": true,
+            "description": "The venue configuration identifier",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VenueConfigurationResource"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/not_found",
+            "description": null
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden",
+            "description": null
+          },
+          "401": {
+            "$ref": "#/components/responses/requires_authentication",
+            "description": null
+          },
+          "500": {
+            "$ref": "#/components/responses/internal_server_error",
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "read:venue_configurations"
+            ]
+          }
+        ]
+      }
+    },
     "/catalog/venues": {
       "get": {
         "tags": [
@@ -1374,6 +1430,11 @@
           "status": {
             "type": "string",
             "description": "The status of the event. Can be `Normal`, `Postponed`, `Cancelled`, `Rescheduled`, `Relocated`, `RelocatedAndRescheduled`, `Draft`, `Contingent` and `Deleted`"
+          },
+          "venue_config_id": {
+            "type": "integer",
+            "description": "The venue configuration identifier for this event.",
+            "format": "int32"
           },
           "_links": {
             "nullable": true,
@@ -2034,6 +2095,63 @@
           }
         }
       },
+      "VenueConfigurationResource": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "config_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VenueConfigSectionResource"
+            }
+          }
+        }
+      },
+      "VenueConfigSectionResource": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "section_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "section_name": {
+            "type": "string"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VenueConfigSectionRowResource"
+            }
+          }
+        }
+      },
+      "VenueConfigSectionRowResource": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "row_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "row_name": {
+            "type": "string"
+          },
+          "ticket_class_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ticket_class_name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "Venues": {
         "type": "object",
         "additionalProperties": false,
@@ -2280,6 +2398,7 @@
       "OAuth2": [
         "read:categories",
         "read:events",
+        "read:venue_configurations",
         "read:venues"
       ]
     }
@@ -2319,9 +2438,18 @@
       "x-displayName": "Venue"
     },
     {
+      "name": "Resource_VenueConfigurationResource",
+      "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/VenueConfigurationResource\" showReadOnly={true} showWriteOnly={true} />",
+      "x-displayName": "VenueConfigurationResource"
+    },
+    {
       "name": "Resource_Venues",
       "description": "\n<SchemaDefinition schemaRef=\"#/components/schemas/Venues\" showReadOnly={true} showWriteOnly={true} />",
       "x-displayName": "Venues"
+    },
+    {
+      "name": "Venue Configurations",
+      "description": "View venue configurations on the viagogo platform"
     },
     {
       "name": "Venues",
@@ -2334,6 +2462,7 @@
       "tags": [
         "Categories",
         "Events",
+        "Venue Configurations",
         "Venues"
       ]
     },
@@ -2350,6 +2479,7 @@
         "Resource_Events",
         "Resource_MapEventResponseModel",
         "Resource_Venue",
+        "Resource_VenueConfigurationResource",
         "Resource_Venues"
       ]
     }
